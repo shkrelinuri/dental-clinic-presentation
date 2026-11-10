@@ -1,0 +1,344 @@
+<!-- PART 1: HEAD AND NAVBAR -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Dental Clinic - Treatments</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <script defer src="../js/translations.js"></script>
+  <script defer src="../script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="icon" type="image/svg+xml" href="../images/generic-dental-logo.svg">
+</head>
+<body>
+
+<!-- Top Navbar -->
+<header class="top-navbar" style="margin-bottom: 0;">
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+  </div>
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search..." />
+  </div>
+  <div class="language-select">
+    <select id="language">
+      <option value="en">EN</option>
+      <option value="it">IT</option>
+      <option value="al">AL</option>
+    </select>
+  </div>
+</header>
+
+<nav class="dentozen-navbar" style="margin-top: 0;">
+  <div class="nav-content">
+    <div class="logo">
+      <a href="../index.html">
+        <img src="../images/generic-dental-logo.svg" alt="Your Dental Clinic" />
+      </a>
+    </div>
+
+    <button class="hamburger" type="button" aria-label="Open navigation menu" aria-controls="navLinks" aria-expanded="false"><i class="fas fa-bars"></i></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../pages/aboutus.html" data-i18n="nav_about">About Us</a></li>
+      <li><a href="../pages/testimonials.html" data-i18n="nav_reviews">Reviews</a></li>
+      <li><a href="../pages/treatments.html" data-i18n="nav_services">Services</a></li>
+      <li><a href="../pages/pricing.html" data-i18n="nav_pricing">Pricing</a></li>
+      <li><a href="../pages/team.html" data-i18n="nav_team">Team</a></li>
+      <li><a href="../pages/contacts.html" data-i18n="nav_contact">Contact</a></li>
+      <li class="nav-appointment"><a class="appointment-btn" href="../pages/contacts.html#contact-form" data-i18n="book">Book Appointment</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Services -->
+<section class="section beige">
+  <h2 class="section-title" data-i18n="our_services">Our Services</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <img src="../images/dental-implants.png" alt="Dental Implants" />
+      <h3 data-i18n="services.implants.title">Dental Implants</h3>
+      <p data-i18n="services.implants.text">Durable and natural-looking replacement teeth that function like your own.</p>
+      <a href="../services/implants.html" class="btn outline" data-i18n="services.implants.btn">Learn More</a>
+    </div>
+    <div class="service-card">
+      <img src="../images/dental-prosthesis.jpg" alt="Dental Prosthetics" />
+      <h3 data-i18n="services.prosthetics.title">Dental Prosthetics</h3>
+      <p data-i18n="services.prosthetics.text">Custom-made devices to replace missing teeth and restore your smile.</p>
+      <a href="../services/prosthetics.html" class="btn outline" data-i18n="services.prosthetics.btn">Learn More</a>
+    </div>
+    <div class="service-card">
+      <img src="../images/dental-cosmetics.jpg" alt="Dental Cosmetics" />
+      <h3 data-i18n="services.cosmetics.title">Dental Cosmetics</h3>
+      <p data-i18n="services.cosmetics.text">Professional teeth whitening and smile design to enhance your natural beauty.</p>
+      <a href="../services/cosmetics.html" class="btn outline" data-i18n="services.cosmetics.btn">Learn More</a>
+    </div>
+    <div class="service-card">
+      <img src="../images/composite-fillings.jpg" alt="Composite Fillings" />
+      <h3 data-i18n="services.general.title">General Dentistry</h3>
+      <p data-i18n="services.general.text">Comprehensive dental care for the whole family, including check-ups and cleanings.</p>
+      <a href="../services/general.html" class="btn outline" data-i18n="services.general.btn">Learn More</a>
+    </div>
+    <div class="service-card">
+      <img src="../images/dental-aligners.jpg" alt="Orthodontics" />
+      <h3 data-i18n="services.orthodontics.title">Orthodontics</h3>
+      <p data-i18n="services.orthodontics.text">Comprehensive orthodontic care, including braces and aligners, for a straighter smile.</p>
+      <a href="../services/orthodontics.html" class="btn outline" data-i18n="services.orthodontics.btn">Learn More</a>
+    </div>
+    <div class="service-card">
+      <img src="../images/oral-surgery.jpg" alt="Oral Surgeries" />
+      <h3 data-i18n="services.surgery.title">Oral Surgeries</h3>
+      <p data-i18n="services.surgery.text">Expert surgical procedures for wisdom teeth removal, implants, and more.</p>
+      <a href="../services/oral-surgeries.html" class="btn outline" data-i18n="services.surgery.btn">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider wave-up">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+    <path d="M0,120 C600,20 600,100 1200,120 L1200,0 L0,0 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+<!-- Contact -->
+<section class="section contact" id="contact">
+  <h2 class="section-title" data-i18n="contact_us">How Can You Find Us?</h2>
+  <p data-i18n="contact.location"><strong>Location:</strong> 123 Example Street, Your City</p>
+  <p data-i18n="contact.phone"><strong>Phone:</strong> +1 (555) 010-0100</p>
+  <div class="map-placeholder" id="map-preview" role="img" aria-label="Sample map placeholder"><i class="fas fa-map-location-dot" aria-hidden="true"></i><p data-i18n="map_placeholder">Map preview placeholder</p></div>
+  <a href="../pages/contacts.html" class="btn primary" data-i18n="book">Book Appointment</a>
+</section>
+
+<!-- Questions Section -->
+<div class="section-divider wave-down">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+    <path d="M0,0 C600,100 600,20 1200,0 L1200,120 L0,120 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+<section class="section beige">
+  <h2 class="section-title" data-i18n="questions">Questions about your treatment?</h2>
+  <p data-i18n="email_or_book">Feel free to email us or book an appointment now.</p>
+  <div class="hero-buttons" style="margin-top: 20px;">
+    <a href="mailto:hello@example.com" class="btn secondary" data-i18n="questions.btn.message">Message Us</a>
+    <a href="../pages/contacts.html#contact-form" class="btn primary" data-i18n="questions.btn.book">Book Now</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <h4 data-i18n="footer.quicklinks.title">Quick Links</h4>
+      <ul>
+        <li><a href="../pages/treatments.html" data-i18n="footer.quicklinks.services">Services</a></li>
+        <li><a href="../pages/pricing.html" data-i18n="footer.quicklinks.pricing">Pricing</a></li>
+        <li><a href="../pages/team.html" data-i18n="footer.quicklinks.team">Team</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 data-i18n="footer.disclaimer.title">Disclaimer</h4>
+      <p data-i18n="footer.disclaimer.text">
+        This is a presentation template. Replace all clinic details, pricing, team information, and testimonials before publishing.
+      </p>
+    </div>
+    <div class="contactfootercontent">
+      <h4 data-i18n="footer.contact.title">Contact</h4>
+      <p data-i18n="footer.contact.text">
+        123 Example Street, Your City<br>Phone: +1 (555) 010-0100<br>Email: hello@example.com
+      </p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="copyright" data-i18n="footer.copyright">
+    © 2025 Your Dental Clinic. Sample presentation content.
+  </div>
+</footer>
+
+<button id="scrollToTopBtn"><i class="fas fa-chevron-up"></i></button>
+
+<!-- Inline language JS for EN/IT with persistence across pages -->
+<script>
+  (function () {
+    const translations = {
+      en: {
+        "search.placeholder": "Search...",
+
+        "nav.about": "About Us",
+        "nav.reviews": "Reviews",
+        "nav.services": "Services",
+        "nav.pricing": "Pricing",
+        "nav.team": "Team",
+        "nav.contact": "Contact",
+        "nav.appointment": "Book Appointment",
+
+        "our_services": "Our Services",
+
+        "services.implants.title": "Dental Implants",
+        "services.implants.text": "Durable and natural-looking replacement teeth that function like your own.",
+        "services.implants.btn": "Learn More",
+
+        "services.prosthetics.title": "Dental Prosthetics",
+        "services.prosthetics.text": "Custom-made devices to replace missing teeth and restore your smile.",
+        "services.prosthetics.btn": "Learn More",
+
+        "services.cosmetics.title": "Dental Cosmetics",
+        "services.cosmetics.text": "Professional teeth whitening and smile design to enhance your natural beauty.",
+        "services.cosmetics.btn": "Learn More",
+
+        "services.general.title": "General Dentistry",
+        "services.general.text": "Comprehensive dental care for the whole family, including check-ups and cleanings.",
+        "services.general.btn": "Learn More",
+
+        "services.orthodontics.title": "Orthodontics",
+        "services.orthodontics.text": "Comprehensive orthodontic care, including braces and aligners, for a straighter smile.",
+        "services.orthodontics.btn": "Learn More",
+
+        "services.surgery.title": "Oral Surgeries",
+        "services.surgery.text": "Expert surgical procedures for wisdom teeth removal, implants, and more.",
+        "services.surgery.btn": "Learn More",
+
+        "contact_us": "How Can You Find Us?",
+        "contact.location": "<strong>Location:</strong> 123 Example Street, Your City",
+        "contact.phone": "<strong>Phone:</strong> +1 (555) 010-0100",
+        "book": "Book Appointment",
+
+        "questions": "Questions about your treatment?",
+        "email_or_book": "Feel free to email us or book an appointment now.",
+        "questions.btn.message": "Message Us",
+        "questions.btn.book": "Book Now",
+
+        "footer.quicklinks.title": "Quick Links",
+        "footer.quicklinks.services": "Services",
+        "footer.quicklinks.pricing": "Pricing",
+        "footer.quicklinks.team": "Team",
+
+        "footer.disclaimer.title": "Disclaimer",
+        "footer.disclaimer.text": "This is a presentation template. Replace all clinic details, pricing, team information, and testimonials before publishing.",
+
+        "footer.contact.title": "Contact",
+        "footer.contact.text": "123 Example Street, Your City<br>Phone: +1 (555) 010-0100<br>Email: hello@example.com",
+
+        "footer.copyright": "© 2025 Your Dental Clinic. Sample presentation content."
+      },
+
+      it: {
+        "search.placeholder": "Cerca...",
+
+        "nav.about": "Chi Siamo",
+        "nav.reviews": "Recensioni",
+        "nav.services": "Trattamenti",
+        "nav.pricing": "Prezzi",
+        "nav.team": "Team",
+        "nav.contact": "Contatti",
+        "nav.appointment": "Prenota una Visita",
+
+        "our_services": "I nostri trattamenti",
+
+        "services.implants.title": "Impianti dentali",
+        "services.implants.text": "Denti sostitutivi resistenti e dall’aspetto naturale che funzionano come i tuoi.",
+        "services.implants.btn": "Scopri di più",
+
+        "services.prosthetics.title": "Protesi dentarie",
+        "services.prosthetics.text": "Dispositivi su misura per sostituire i denti mancanti e ridare armonia al tuo sorriso.",
+        "services.prosthetics.btn": "Scopri di più",
+
+        "services.cosmetics.title": "Odontoiatria estetica",
+        "services.cosmetics.text": "Sbiancamento professionale e smile design per valorizzare la tua bellezza naturale.",
+        "services.cosmetics.btn": "Scopri di più",
+
+        "services.general.title": "Odontoiatria generale",
+        "services.general.text": "Cura dentale completa per tutta la famiglia, inclusi controlli periodici e igiene orale.",
+        "services.general.btn": "Scopri di più",
+
+        "services.orthodontics.title": "Ortodonzia",
+        "services.orthodontics.text": "Trattamenti ortodontici completi, apparecchi fissi e allineatori per un sorriso più dritto.",
+        "services.orthodontics.btn": "Scopri di più",
+
+        "services.surgery.title": "Chirurgia orale",
+        "services.surgery.text": "Interventi chirurgici specialistici per ottavi, impianti e molto altro.",
+        "services.surgery.btn": "Scopri di più",
+
+        "contact_us": "Come puoi trovarci?",
+        "contact.location": "<strong>Indirizzo:</strong> 123 Example Street, Your City",
+        "contact.phone": "<strong>Telefono:</strong> +1 (555) 010-0100",
+        "book": "Prenota una visita",
+
+        "questions": "Domande sul tuo trattamento?",
+        "email_or_book": "Scrivici via e-mail oppure prenota subito una visita.",
+        "questions.btn.message": "Scrivici",
+        "questions.btn.book": "Prenota ora",
+
+        "footer.quicklinks.title": "Link rapidi",
+        "footer.quicklinks.services": "Trattamenti",
+        "footer.quicklinks.pricing": "Prezzi",
+        "footer.quicklinks.team": "Team",
+
+        "footer.disclaimer.title": "Disclaimer",
+        "footer.disclaimer.text": "Questo è un modello dimostrativo. Sostituisci i dettagli della clinica, i prezzi, il team e le testimonianze prima della pubblicazione.",
+
+        "footer.contact.title": "Contatti",
+        "footer.contact.text": "123 Example Street, Your City<br>Telefono: +1 (555) 010-0100<br>Email: hello@example.com",
+
+        "footer.copyright": "© 2025 Your Dental Clinic. Contenuto dimostrativo."
+      }
+    };
+
+    function applyTranslations(lang) {
+      const elements = document.querySelectorAll("[data-i18n]");
+      elements.forEach(el => {
+        const key = el.dataset.i18n;
+        const value = translations[lang] && translations[lang][key];
+        if (value) {
+          el.innerHTML = value;
+        }
+      });
+
+      const searchInput = document.getElementById("searchInput");
+      if (searchInput && translations[lang] && translations[lang]["search.placeholder"]) {
+        searchInput.setAttribute("placeholder", translations[lang]["search.placeholder"]);
+      }
+
+      document.documentElement.lang = lang;
+    }
+
+          function loadSavedLanguage() {
+        try { return localStorage.getItem("siteLanguage"); }
+        catch (error) { if (error.name !== "SecurityError") throw error; return null; }
+      }
+      function persistLanguage(language) {
+        try { localStorage.setItem("siteLanguage", language); }
+        catch (error) { if (error.name !== "SecurityError") throw error; }
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+      if (document.documentElement.lang === "al") return;
+const select = document.getElementById("language");
+      // Default main language is English
+      const savedLang = new URLSearchParams(location.search).get("lang") || loadSavedLanguage() || "en";
+      const initialLang = (savedLang === "en" || savedLang === "it") ? savedLang : "en";
+
+      if (select) {
+        select.value = initialLang;
+      }
+      applyTranslations(initialLang);
+
+      if (select) {
+        select.addEventListener("change", function () {
+          const lang = select.value;
+          // Only EN and IT are fully supported here; others fall back to EN
+          const effectiveLang = (lang === "en" || lang === "it") ? lang : "en";
+          persistLanguage(effectiveLang);
+          applyTranslations(effectiveLang);
+        });
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>

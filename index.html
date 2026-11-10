@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="page_title">Your Dental Clinic</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="js/translations.js"></script>
+  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="icon" type="image/svg+xml" href="images/generic-dental-logo.svg">
+</head>
+<body class="home-page">
+
+<div class="top-navbar">
+  <div class="topbar-inner">
+    <p class="topbar-location"><i class="fas fa-location-dot" aria-hidden="true"></i><span data-i18n="location_text">123 Example Street, Your City</span></p>
+    <div class="topbar-actions">
+      <a class="topbar-phone" href="tel:+15550100100"><i class="fas fa-phone" aria-hidden="true"></i><span>+1 (555) 010-0100</span></a>
+      <div class="search-container">
+        <input type="search" id="searchInput" placeholder="Search services and information" data-i18n-placeholder="search_placeholder" />
+      </div>
+      <label class="sr-only" for="language">Language</label>
+      <select id="language" aria-label="Language selector">
+        <option value="en">EN</option>
+        <option value="it">IT</option>
+        <option value="al">AL</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<nav class="dentozen-navbar" aria-label="Main navigation">
+  <div class="nav-content">
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/generic-dental-logo.svg" alt="Your Dental Clinic" />
+      </a>
+    </div>
+
+    <button class="hamburger" type="button" aria-label="Open navigation menu" aria-controls="navLinks" aria-expanded="false">
+      <i class="fas fa-bars" aria-hidden="true"></i>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="pages/aboutus.html" data-i18n="nav_about">About Us</a></li>
+      <li><a href="pages/testimonials.html" data-i18n="nav_reviews">Reviews</a></li>
+      <li><a href="pages/treatments.html" data-i18n="nav_services">Services</a></li>
+      <li><a href="pages/pricing.html" data-i18n="nav_pricing">Pricing</a></li>
+      <li><a href="pages/team.html" data-i18n="nav_team">Team</a></li>
+      <li><a href="pages/contacts.html" data-i18n="nav_contact">Contact</a></li>
+      <li class="nav-appointment"><a class="appointment-btn" href="pages/contacts.html#contact-form" data-i18n="book">Book Appointment</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+<section class="hero home-hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <p class="hero-eyebrow"><span class="eyebrow-mark" aria-hidden="true"></span><span data-i18n="hero_eyebrow">Thoughtful dental care, centered around you</span></p>
+      <h1 data-i18n="hero_title">Modern Dental Care for Every Smile</h1>
+      <p class="hero-description" data-i18n="hero_description">Explore a welcoming dental practice offering general, restorative, and cosmetic care. Services and details shown here are sample content for presentation.</p>
+    <div class="hero-buttons">
+        <a href="pages/contacts.html#contact-form" class="btn primary" data-i18n="book">Book Appointment</a>
+        <a href="pages/contacts.html#contact-form" class="btn secondary"><i class="fas fa-phone" aria-hidden="true"></i><span data-i18n="call">Contact the Clinic</span></a>
+      </div>
+      <ul class="hero-assurances" aria-label="Our approach">
+        <li><i class="fas fa-circle-check" aria-hidden="true"></i><span data-i18n="hero_assurance_1">Personalized treatment plans</span></li>
+        <li><i class="fas fa-circle-check" aria-hidden="true"></i><span data-i18n="hero_assurance_2">Patient-first, gentle care</span></li>
+        <li><i class="fas fa-circle-check" aria-hidden="true"></i><span data-i18n="hero_assurance_3">Convenient central location</span></li>
+      </ul>
+    </div>
+    <div class="hero-visual">
+      <img src="images/homepic.jpg" alt="Modern dental treatment room" fetchpriority="high">
+      <div class="hero-image-note">
+        <span class="hero-note-icon"><i class="fas fa-tooth" aria-hidden="true"></i></span>
+        <span><strong data-i18n="hero_note_title">Care you can feel good about</strong><small data-i18n="hero_note_text">Meet our team and explore your options.</small></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section home-intro" id="aboutus">
+  <div class="intro-layout">
+    <div class="intro-image">
+      <img src="images/modern-dentistry1.jpg" alt="A welcoming dental clinic space" loading="lazy">
+      <div class="intro-image-caption"><i class="fas fa-location-dot" aria-hidden="true"></i><span data-i18n="location_text">123 Example Street, Your City</span></div>
+    </div>
+    <div class="intro-copy">
+      <p class="section-kicker" data-i18n="modern_subtitle">Advanced technology meets compassionate care</p>
+      <h2 class="section-title" data-i18n="modern_dentistry">Modern Dentistry & Aesthetic Treatment</h2>
+      <div class="info-text" data-i18n="modern_text">
+        <p>Our dental clinic combines general, restorative, and cosmetic care in a welcoming setting. Our sample team uses modern techniques and takes time to explain treatment options.</p>
+        <p>We provide complete dental solutions from routine care to restorative and aesthetic treatments in a welcoming environment designed around patient comfort.</p>
+      </div>
+      <a class="text-link" href="pages/aboutus.html"><span data-i18n="nav_about">About Us</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- Review Section -->
+ <div class="section-divider top-divider">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path fill="#fdf7f1" d="M0,0 C360,100 1080,0 1440,100 L1440,0 L0,0 Z"></path>
+    </svg>
+  </div>
+<section class="section reviews-container">
+
+  <div class="section reviews-inner">
+    <h2 class="section-title" data-i18n="patient_reviews">Patient Reviews</h2>
+    <p class="section-subtitle" data-i18n="reviews_subtitle">Example testimonials for presentation only. Replace before publishing.</p>
+    <div class="reviews-wrapper" aria-label="Patient reviews">
+      <button class="reviews-arrow left" type="button" aria-label="Previous reviews">&#10094;</button>
+      <div class="reviews-track">
+
+        <!-- Review Card 1 (AL) -->
+        <div class="review-card">
+          <div class="review-profile" style="background-color: #FF6F61;">A</div>
+          <h4>Sample Patient</h4>
+          <div class="review-stars">★★★★★</div>
+          <p data-i18n="reviews.1.text">Shërbim fantastik dhe staf shumë mikpritës. Me të vërtetë një klinikë që e rekomandoj!</p>
+        </div>
+
+        <!-- Review Card 3 (IT) -->
+        <div class="review-card">
+          <div class="review-profile" style="background-color: #FFB703;">F</div>
+          <h4>Sample Patient</h4>
+          <div class="review-stars">★★★★★</div>
+          <p data-i18n="reviews.3.text">Clinica moderna con attrezzature eccellenti e personale molto attento.</p>
+        </div>
+
+        <!-- Review Card 5 (AL) -->
+        <div class="review-card">
+          <div class="review-profile" style="background-color: #E91E63;">B</div>
+          <h4>Sample Patient</h4>
+          <div class="review-stars">★★★★★</div>
+          <p data-i18n="reviews.5.text">Shumë të rregullt, profesionistë dhe të sjellshëm. Do rikthehem patjetër.</p>
+        </div>
+
+        <!-- Review Card 7 (AL) -->
+        <div class="review-card">
+          <div class="review-profile" style="background-color: #9C27B0;">G</div>
+          <h4>Sample Patient</h4>
+          <div class="review-stars">★★★★★</div>
+          <p data-i18n="reviews.7.text">Staf shumë i trajnuar dhe pajisje moderne. Vlerësim maksimal!</p>
+        </div>
+
+        <!-- Review Card 8 (IT) -->
+        <div class="review-card">
+          <div class="review-profile" style="background-color: #3F51B5;">S</div>
+          <h4>Sample Patient</h4>
+          <div class="review-stars">★★★★★</div>
+          <p data-i18n="reviews.8.text">La migliore esperienza odontoiatrica che abbia mai avuto. Tutto perfetto.</p>
+        </div>
+
+        <!-- Review Card 10 (AL) -->
+        <div class="review-card">
+          <div class="review-profile" style="background-color: #2E8B57;">A</div>
+          <h4>Sample Patient</h4>
+          <div class="review-stars">★★★★★</div>
+          <p data-i18n="reviews.10.text">Doktori ishte shumë i kujdesshëm dhe më shpjegoi çdo hap të trajtimit. Jam shumë e kënaqur.</p>
+        </div>
+
+        <!-- Review Card 11 (IT) -->
+        <div class="review-card">
+          <div class="review-profile" style="background-color: #8E44AD;">M</div>
+          <h4>Sample Patient</h4>
+          <div class="review-stars">★★★★★</div>
+          <p data-i18n="reviews.11.text">Ottimo servizio! Ambiente pulitissimo e molto accogliente.</p>
+        </div>
+
+        <!-- Review Card 12 (AL) -->
+        <div class="review-card">
+          <div class="review-profile" style="background-color: #FF7043;">R</div>
+          <h4>Sample Patient</h4>
+          <div class="review-stars">★★★★★</div>
+          <p data-i18n="reviews.12.text">Ishte hera e parë që nuk ndjeva fare dhimbje. Mjekë të mrekullueshëm!</p>
+        </div>
+
+        <!-- Review Card 13 (IT) -->
+        <div class="review-card">
+          <div class="review-profile" style="background-color: #1E88E5;">G</div>
+          <h4>Sample Patient</h4>
+          <div class="review-stars">★★★★★</div>
+          <p data-i18n="reviews.13.text">Staff impeccabile, disponibili e molto preparati. Tornerò di sicuro.</p>
+        </div>
+
+        <!-- Review Card 14 (AL) -->
+        <div class="review-card">
+          <div class="review-profile" style="background-color: #C62828;">D</div>
+          <h4>Sample Patient</h4>
+          <div class="review-stars">★★★★★</div>
+          <p data-i18n="reviews.14.text">S’kam pasur ndonjëherë përvojë kaq të mirë te dentisti. Faleminderit për gjithçka.</p>
+        </div>
+
+        <!-- Review Card 15 (IT) -->
+        <div class="review-card">
+          <div class="review-profile" style="background-color: #009688;">F</div>
+          <h4>Sample Patient</h4>
+          <div class="review-stars">★★★★★</div>
+          <p data-i18n="reviews.15.text">Esperienza eccellente, risultato perfetto e zero dolore.</p>
+        </div>
+
+        <!-- Review Card 16 (IT) -->
+        <div class="review-card">
+          <div class="review-profile" style="background-color: #7CB342;">C</div>
+          <h4>Sample Patient</h4>
+          <div class="review-stars">★★★★★</div>
+          <p data-i18n="reviews.16.text">Professionali, veloci e molto gentili. Una clinica davvero seria.</p>
+        </div>
+
+        <!-- Review Card 17 (AL) -->
+        <div class="review-card">
+          <div class="review-profile" style="background-color: #5C6BC0;">V</div>
+          <h4>Sample Patient</h4>
+          <div class="review-stars">★★★★★</div>
+          <p data-i18n="reviews.17.text">Shërbim i shkëlqyer dhe atmosferë shumë e ngrohtë. Ndihem shumë e sigurt këtu.</p>
+        </div>
+
+        <!-- Review Card 18 (IT) -->
+        <div class="review-card">
+          <div class="review-profile" style="background-color: #EF5350;">A</div>
+          <h4>Sample Patient</h4>
+          <div class="review-stars">★★★★★</div>
+          <p data-i18n="reviews.18.text">La qualità del lavoro è semplicemente superiore. Consigliato senza dubbi.</p>
+        </div>
+
+        <!-- Review Card 19 (AL) -->
+        <div class="review-card">
+          <div class="review-profile" style="background-color: #AB47BC;">K</div>
+          <h4>Sample Patient</h4>
+          <div class="review-stars">★★★★★</div>
+          <p data-i18n="reviews.19.text">Më pëlqeu që gjithçka u bë me qetësi dhe profesionalizëm. Rezultati perfekt.</p>
+        </div>
+
+        <!-- Review Card 20 (IT) -->
+        <div class="review-card">
+          <div class="review-profile" style="background-color: #42A5F5;">S</div>
+          <h4>Sample Patient</h4>
+          <div class="review-stars">★★★★★</div>
+          <p data-i18n="reviews.20.text">Trattamento eccellente, personale gentilissimo e sempre sorridente.</p>
+        </div>
+
+        <!-- Review Card 21 (IT) -->
+        <div class="review-card">
+          <div class="review-profile" style="background-color: #26A69A;">L</div>
+          <h4>Sample Patient</h4>
+          <div class="review-stars">★★★★★</div>
+          <p data-i18n="reviews.21.text">Precisione, cura e grande professionalità. Davvero soddisfatto.</p>
+        </div>
+
+        <!-- Review Card 22 (AL) -->
+        <div class="review-card">
+          <div class="review-profile" style="background-color: #66BB6A;">M</div>
+          <h4>Sample Patient</h4>
+          <div class="review-stars">★★★★★</div>
+          <p data-i18n="reviews.22.text">Staf shumë i sjellshëm dhe trajtim shumë i shpejtë. E rekomandoj pa hezitim.</p>
+        </div>
+
+        <!-- Review Card 23 (IT) -->
+        <div class="review-card">
+          <div class="review-profile" style="background-color: #FFA726;">D</div>
+          <h4>Sample Patient</h4>
+          <div class="review-stars">★★★★★</div>
+          <p data-i18n="reviews.23.text">Servizio impeccabile, puntualità e grande attenzione al dettaglio.</p>
+        </div>
+
+        <!-- Review Card 24 (IT) -->
+        <div class="review-card">
+          <div class="review-profile" style="background-color: #EC407A;">C</div>
+          <h4>Sample Patient</h4>
+          <div class="review-stars">★★★★★</div>
+          <p data-i18n="reviews.24.text">Mi sono trovata benissimo, ho finalmente trovato la mia clinica di fiducia.</p>
+        </div>
+
+        <!-- Review Card 25 (AL) -->
+        <div class="review-card">
+          <div class="review-profile" style="background-color: #8D6E63;">B</div>
+          <h4>Sample Patient</h4>
+          <div class="review-stars">★★★★★</div>
+          <p data-i18n="reviews.25.text">Rezultat shumë i bukur dhe natyral. Faleminderit për kujdesin e treguar.</p>
+        </div>
+
+        <!-- Review Card 26 (IT) -->
+        <div class="review-card">
+          <div class="review-profile" style="background-color: #78909C;">P</div>
+          <h4>Sample Patient</h4>
+          <div class="review-stars">★★★★★</div>
+          <p data-i18n="reviews.26.text">Personale disponibile, simpatico e davvero competente. Esperienza perfetta.</p>
+        </div>
+
+        <!-- Review Card 27 (IT) -->
+        <div class="review-card">
+          <div class="review-profile" style="background-color: #FFCA28;">R</div>
+          <h4>Sample Patient</h4>
+          <div class="review-stars">★★★★★</div>
+          <p data-i18n="reviews.27.text">Clinica eccellente, pulizia impeccabile e trattamento rapido.</p>
+        </div>
+
+        <!-- Review Card 28 (AL) -->
+        <div class="review-card">
+          <div class="review-profile" style="background-color: #26C6DA;">S</div>
+          <h4>Sample Patient</h4>
+          <div class="review-stars">★★★★★</div>
+          <p data-i18n="reviews.28.text">Nuk kam pasur kurrë trajtim më profesional. Të përkryer në çdo detaj.</p>
+        </div>
+
+        <!-- Review Card 29 (IT) -->
+        <div class="review-card">
+          <div class="review-profile" style="background-color: #42A5F5;">E</div>
+          <h4>Sample Patient</h4>
+          <div class="review-stars">★★★★★</div>
+          <p data-i18n="reviews.29.text">Lavoro perfetto e personale veramente straordinario. Super consigliato!</p>
+        </div>
+
+        <!-- Review Card 30 (IT) -->
+        <div class="review-card">
+          <div class="review-profile" style="background-color: #7E57C2;">N</div>
+          <h4>Sample Patient</h4>
+          <div class="review-stars">★★★★★</div>
+          <p data-i18n="reviews.30.text">Non potevo scegliere clinica migliore. Tutto rapido, preciso e di altissima qualità.</p>
+        </div>
+
+      </div>
+      <button class="reviews-arrow right" type="button" aria-label="Next reviews">&#10095;</button>
+    </div>
+  </div>
+</section>
+<div class="section-divider bottom-divider">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path fill="#fdf7f1" d="M0,100 C360,0 1080,100 1440,0 L1440,100 L0,100 Z"></path>
+    </svg>
+  </div>  
+
+<!-- Services -->
+<section class="section beige home-services" id="services">
+  <p class="section-kicker" data-i18n="services_eyebrow">Care for every stage of your smile</p>
+  <h2 class="section-title" data-i18n="our_services">Our Specialized Services</h2>
+  <p class="section-subtitle" data-i18n="services_subtitle">Tailored treatments for your health, comfort, and confidence</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <img src="images/dental-implants.png" alt="Dental Implants" />
+      <h3 data-i18n="service_implants_title">Dental Implants</h3>
+      <p data-i18n="service_implants_desc">Durable and natural-looking replacement teeth that function like your own.</p>
+      <a href="services/implants.html" class="btn outline" data-i18n="learn_more">Learn More</a>
+    </div>
+    <div class="service-card">
+      <img src="images/dental-prosthesis.jpg" alt="Dental Prosthetics" />
+      <h3 data-i18n="service_prosthetics_title">Dental Prosthetics</h3>
+      <p data-i18n="service_prosthetics_desc">Custom-made devices to replace missing teeth and restore your smile.</p>
+      <a href="services/prosthetics.html" class="btn outline" data-i18n="learn_more">Learn More</a>
+    </div>
+    <div class="service-card">
+      <img src="images/dental-cosmetics.jpg" alt="Dental Cosmetics" />
+      <h3 data-i18n="service_cosmetics_title">Dental Cosmetics</h3>
+      <p data-i18n="service_cosmetics_desc">Professional teeth whitening and smile design to enhance your natural beauty.</p>
+      <a href="services/cosmetics.html" class="btn outline" data-i18n="learn_more">Learn More</a>
+    </div>
+    <div class="service-card">
+      <img src="images/composite-fillings.jpg" alt="Composite Fillings" />
+      <h3 data-i18n="service_general_title">General Dentistry</h3>
+      <p data-i18n="service_general_desc">Comprehensive dental care for the whole family, including check-ups and cleanings.</p>
+      <a href="services/general.html" class="btn outline" data-i18n="learn_more">Learn More</a>
+    </div>
+    <div class="service-card">
+      <img src="images/dental-aligners.jpg" alt="Orthodontics" />
+      <h3 data-i18n="service_orthodontics_title">Orthodontics</h3>
+      <p data-i18n="service_orthodontics_desc">Comprehensive orthodontic care, including braces and aligners, for a straighter smile.</p>
+      <a href="services/orthodontics.html" class="btn outline" data-i18n="learn_more">Learn More</a>
+    </div>
+    <div class="service-card">
+      <img src="images/oral-surgery.jpg" alt="Oral Surgeries" />
+      <h3 data-i18n="service_oral_title">Oral Surgeries</h3>
+      <p data-i18n="service_oral_desc">Expert surgical procedures for wisdom teeth removal, implants, and more.</p>
+      <a href="services/oral-surgeries.html" class="btn outline" data-i18n="learn_more">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US SECTION -->
+<section class="section beige why-choose-us">
+  <p class="section-kicker" data-i18n="why_eyebrow">A thoughtful approach to dental care</p>
+  <h2 class="section-title" data-i18n="why_choose_us">Why Choose Us?</h2>
+
+  <p class="highlight" style="margin: 1cm;" data-i18n="why_highlight">
+    We are committed to providing top-quality dental care with comfort, safety, and expertise at the heart of every treatment.
+  </p>
+
+  <div class="why-grid">
+    <div class="why-item">
+      <img src="images/why1.png" alt="Expert Dentists" />
+      <h3 data-i18n="why_expert">Expert Dentists</h3>
+      <p data-i18n="why_expert_desc">Highly experienced and internationally trained professionals at your service.</p>
+    </div>
+    <div class="why-item">
+      <img src="images/why2.jpg" alt="Flexible Hours" />
+      <h3 data-i18n="why_flexible">Flexible Hours</h3>
+      <p data-i18n="why_flexible_desc">Evening and weekend appointments available for your convenience.</p>
+    </div>
+    <div class="why-item">
+      <img src="images/why3.jpg" alt="Modern Equipment" />
+      <h3 data-i18n="why_modern">Modern Equipment</h3>
+      <p data-i18n="why_modern_desc">State-of-the-art technology ensures the best care and comfort.</p>
+    </div>
+    <div class="why-item">
+      <img src="images/why4.jpg" alt="Patient Comfort" />
+      <h3 data-i18n="why_comfort">Patient Comfort</h3>
+      <p data-i18n="why_comfort_desc">A calm, relaxing environment designed with your well-being in mind.</p>
+    </div>
+    <div class="why-item">
+      <img src="images/why5.jpg" alt="Certified Care" />
+      <h3 data-i18n="why_certified">Quality-Focused Care</h3>
+      <p data-i18n="why_certified_desc">We take care to select appropriate materials for each treatment.</p>
+    </div>
+  </div><br>
+
+  <p data-i18n="email_or_book">Feel free to email us or book an appointment now.</p>
+  <div class="hero-buttons" style="margin-top: 20px;">
+    <a href="pages/contacts.html#contact-form" class="btn secondary" data-i18n="message_us">Contact Us</a>
+    <a href="pages/contacts.html#contact-form" class="btn primary" data-i18n="book">Book Now</a>
+  </div>
+</section>
+
+<div class="section-divider wave-up">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+    <path d="M0,120 C600,20 600,100 1200,120 L1200,0 L0,0 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+<!-- Contact -->
+<section class="section contact" id="contact">
+  <h2 class="section-title" data-i18n="contact_us">How Can You Find Us?</h2>
+  <p><strong data-i18n="location_label">Address:</strong> <span data-i18n="location_text">123 Example Street, Your City</span></p>
+  <p><strong data-i18n="phone_label">Phone:</strong> <span data-i18n="phone_text">+1 (555) 010-0100</span></p>
+  <div class="map-placeholder" id="map-preview" role="img" aria-label="Sample map placeholder"><i class="fas fa-map-location-dot" aria-hidden="true"></i><p data-i18n="map_placeholder">Map preview placeholder</p></div>
+  <div class="hero-buttons">
+    <a href="pages/contacts.html#contact-form" class="btn primary" data-i18n="book">Book Appointment</a>
+  </div>
+</section>
+
+<!-- Questions Section -->
+<div class="section-divider wave-down">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+    <path d="M0,0 C600,100 600,20 1200,0 L1200,120 L0,120 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+<section class="section beige">
+  <h2 class="section-title" data-i18n="questions">Questions about your treatment?</h2>
+  <p data-i18n="email_or_book">Feel free to email us or book an appointment now.</p>
+  <div class="hero-buttons" style="margin-top: 20px;">
+    <a href="pages/contacts.html#contact-form" class="btn secondary" data-i18n="message_us">Contact Us</a>
+    <a href="pages/contacts.html#contact-form" class="btn primary" data-i18n="book">Book Now</a>
+  </div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <h4 data-i18n="footer_quick_links">Quick Links</h4>
+      <ul>
+        <li><a href="pages/treatments.html" data-i18n="footer_treatments">Treatments</a></li>
+        <li><a href="pages/pricing.html" data-i18n="footer_pricing">Pricing</a></li>
+        <li><a href="pages/team.html" data-i18n="footer_team">Team</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 data-i18n="footer_disclaimer_title">Disclaimer</h4>
+      <p data-i18n="footer_disclaimer_text">This is a presentation template. Replace all clinic details, pricing, team information, and testimonials before publishing.</p>
+    </div>
+    <div class="contactfootercontent">
+      <h4 data-i18n="footer_contact">Contact</h4>
+      <p data-i18n="footer_contact_details">123 Example Street, Your City<br>Phone: +1 (555) 010-0100<br>Email: hello@example.com</p>
+      <div class="social-icons">
+        <a href="pages/contacts.html#contact-form" aria-label="Contact the clinic"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </div> <!-- End of footer -->
+  
+  <div class="copyright" data-i18n="copyright">
+    © 2025 Your Dental Clinic. Sample presentation content.
+  </div>
+</footer>
+
+<button id="scrollToTopBtn" title="Back to top" aria-label="Back to top"><i class="fas fa-chevron-up" aria-hidden="true"></i></button>
+
+<div class="whatsapp-float">
+  <a
+    id="whatsapp-button"
+    class="whatsapp-btn"
+    href="#"
+    aria-label="Open WhatsApp chat"
+    data-phone="15550100100"
+    data-message="Hello, I would like to know more about your dental services."
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <!-- WhatsApp Icon -->
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path fill="white" d="M20.52 3.48A11.86 11.86 0 0012 .5 11.8 11.8 0 003.42 4.32 11.9 11.9 0 001.5 12c0 2.13.56 4.18 1.62 6.01L.5 22.5l4.78-1.1A11.9 11.9 0 0012 23.5c3.16 0 6.12-1.1 8.48-3.1A11.86 11.86 0 0023.5 12a11.8 11.8 0 00-1-4.52zM12 21.5c-2.06 0-4.02-.56-5.72-1.6l-.41-.24-2.84.65.64-2.77-.26-.43A9.4 9.4 0 012.5 12 9.5 9.5 0 1112 21.5z"/>
+      <path fill="white" d="M17.54 14.01c-.28-.14-1.66-.82-1.92-.92-.26-.1-.45-.14-.64.14-.18.27-.72.92-.88 1.11-.16.18-.32.2-.6.07-.28-.14-1.18-.43-2.25-1.38-.83-.73-1.39-1.63-1.55-1.91-.16-.27-.02-.42.12-.56.12-.12.28-.32.42-.48.14-.16.18-.27.28-.46.09-.18.04-.34-.02-.48-.07-.14-.64-1.55-.88-2.12-.23-.56-.47-.48-.64-.49l-.54-.01c-.18 0-.47.07-.72.34-.26.28-1 1-1 2.44s1.03 2.83 1.17 3.03c.14.2 2.01 3.07 4.88 4.3 2.07.95 2.98 1.02 3.32.95.34-.07 1.09-.44 1.24-.86.14-.42.14-.78.1-.86-.05-.08-.18-.14-.38-.24z"/>
+    </svg>
+  </a>
+</div>
+</body>
+</html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Dental Clinic - Orthodontics</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <script defer src="../js/translations.js"></script>
+  <script defer src="../script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="icon" type="image/svg+xml" href="../images/generic-dental-logo.svg">
+    <style>
+
+    /* === Section Styles === */
+    .section { padding: 44px 20px; position: relative; }
+    .section.beige { background: #fdf7f1; }
+    .container.narrow { max-width: 900px; margin: 0 auto; padding: 0 18px; }
+    .section-title {
+      font-size: 1.95rem;
+      font-weight: 700;
+      color: #222;
+      text-align: center;
+      margin-bottom: 18px;
+      line-height: 1.15;
+    }
+    .intro-text { color: #4b4b4b; text-align: center; font-size: 1.05rem; margin-bottom: 18px; }
+
+    /* === Checklist === */
+    .checklist { list-style: none; padding: 0; margin: 0 auto; max-width: 760px; }
+    .checklist li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 10px;
+      color: #444;
+    }
+    .checklist li::before {
+      content: "\f00c";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #b28756;
+      font-size: 0.9rem;
+    }
+
+    /* === Alternating Steps Layout === */
+    .procedure-steps { display: flex; flex-direction: column; gap: 40px; margin-top: 20px; }
+    .procedure-step {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .procedure-step:nth-child(even) { flex-direction: row-reverse; }
+    .step-text { flex: 1; min-width: 280px; }
+    .step-text strong { color: #b28756; }
+    .step-image { flex: 1; min-width: 280px; position: relative; }
+    .step-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 22px rgba(13,13,13,0.06);
+    }
+    .step-number {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 36px;
+      height: 36px;
+      line-height: 36px;
+      text-align: center;
+      border-radius: 50%;
+      background: #b28756;
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 6px 14px rgba(178,135,86,0.18);
+      z-index: 2;
+      font-size: 16px;
+    }
+
+    /* === CTA === */
+    .cta-section {
+      background: #b28756;
+      color: #fff;
+      text-align: center;
+      padding: 36px 18px;
+    }
+    .btn {
+      background: #b28756;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .btn:hover { background: #946a41; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .procedure-step { flex-direction: column !important; text-align: center; }
+      .procedure-step:nth-child(even) { flex-direction: column !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top Navbar -->
+<header class="top-navbar" style="margin-bottom: 0;">
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+  </div>
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search..." />
+  </div>
+  <div class="language-select">
+    <select id="language">
+      <option value="en">EN</option>
+      <option value="it">IT</option>
+      <option value="al">AL</option>
+    </select>
+  </div>
+</header>
+
+<nav class="dentozen-navbar" style="margin-top: 0;">
+  <div class="nav-content">
+    <div class="logo">
+      <a href="../index.html">
+        <img src="../images/generic-dental-logo.svg" alt="Your Dental Clinic" />
+      </a>
+    </div>
+    <button class="hamburger" type="button" aria-label="Open navigation menu" aria-controls="navLinks" aria-expanded="false"><i class="fas fa-bars"></i></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../pages/aboutus.html" data-i18n="nav_about">About Us</a></li>
+      <li><a href="../pages/testimonials.html" data-i18n="nav_reviews">Reviews</a></li>
+      <li><a href="../pages/treatments.html" data-i18n="nav_services">Services</a></li>
+      <li><a href="../pages/pricing.html" data-i18n="nav_pricing">Pricing</a></li>
+      <li><a href="../pages/team.html" data-i18n="nav_team">Team</a></li>
+      <li><a href="../pages/contacts.html" data-i18n="nav_contact">Contact</a></li>
+      <li class="nav-appointment"><a class="appointment-btn" href="../pages/contacts.html#contact-form" data-i18n="book">Book Appointment</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Service Overview -->
+<section class="section beige">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="orthodontics.title">
+      A Straighter Smile, a Healthier Future — Discover the Power of Modern Orthodontics
+    </h2>
+    <p class="intro-text" data-i18n="orthodontics.intro">
+      Personalized solutions with braces or clear aligners, tailored to your needs and comfort.
+    </p>
+    <div class="image-center">
+      <img src="../images/dental-aligners.jpg" alt="Orthodontics Treatment" class="service-image" />
+    </div>  
+  </div>
+</section>
+
+<!-- Divider: beige -> white -->
+<div class="section-divider wave-up">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,120 C600,20 600,100 1200,120 L1200,0 L0,0 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+<!-- Treatment Steps -->
+<section class="section">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="orthodontics.steps_title">Orthodontic Treatment Steps</h2>
+    <div class="procedure-steps">
+      <div class="procedure-step">
+        <div class="step-text" data-i18n="orthodontics.steps.step1"><strong>Initial Consultation:</strong> A thorough examination including photos, X-rays, and discussion of your smile goals.</div>
+        <div class="step-image">
+          <span class="step-number">1</span>
+          <img src="../images/implantimg1.jpeg" alt="Step 1 - Initial Consultation">
+        </div>
+      </div>
+      <div class="procedure-step">
+        <div class="step-text" data-i18n="orthodontics.steps.step2"><strong>Digital Impressions / X-rays:</strong> Advanced imaging creates a precise map of your teeth for treatment planning.</div>
+        <div class="step-image">
+          <span class="step-number">2</span>
+          <img src="../images/toothx.jpg" alt="Step 2 - Digital Impressions">
+        </div>
+      </div>
+      <div class="procedure-step">
+        <div class="step-text" data-i18n="orthodontics.steps.step3"><strong>Customized Treatment Plan:</strong> We tailor your orthodontic journey—choosing between braces or aligners.</div>
+        <div class="step-image">
+          <span class="step-number">3</span>
+          <img src="../images/treatment-plan.jpg" alt="Step 3 - Customized Treatment Plan">
+        </div>
+      </div>
+      <div class="procedure-step">
+        <div class="step-text" data-i18n="orthodontics.steps.step4"><strong>Application of Braces / Clear Aligners:</strong> Your appliance is placed or delivered, and your journey begins.</div>
+        <div class="step-image">
+          <span class="step-number">4</span>
+          <img src="../images/brace-application.jpg" alt="Step 4 - Application of Braces or Aligners">
+        </div>
+      </div>
+      <div class="procedure-step">
+        <div class="step-text" data-i18n="orthodontics.steps.step5"><strong>Regular Adjustments & Follow-ups:</strong> Routine visits ensure everything is progressing correctly.</div>
+        <div class="step-image">
+          <span class="step-number">5</span>
+          <img src="../images/followup.jpg" alt="Step 5 - Adjustments & Follow-ups">
+        </div>
+      </div>
+      <div class="procedure-step">
+        <div class="step-text" data-i18n="orthodontics.steps.step6"><strong>Final Results and Retainers:</strong> Once aligned, retainers maintain your new smile.</div>
+        <div class="step-image">
+          <span class="step-number">6</span>
+          <img src="../images/result-retainer.jpg" alt="Step 6 - Retainers">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Divider: white -> beige -->
+<div class="section-divider wave-down">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 C600,100 600,20 1200,0 L1200,120 L0,120 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+<!-- Braces vs Aligners -->
+<section class="section beige">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="orthodontics.comparison_title">Braces vs. Clear Aligners</h2>
+    <ul class="checklist">
+      <li data-i18n="braces">Braces: Ideal for complex corrections. Available in metal or ceramic. Fixed and always working.</li>
+      <li data-i18n="aligners">Clear Aligners: Nearly invisible, removable, and comfortable. Best for aesthetic, flexible treatment.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Divider: beige -> white -->
+<div class="section-divider wave-up">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,120 C600,20 600,100 1200,120 L1200,0 L0,0 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="orthodontics.faq_title">Frequently Asked Questions</h2>
+    <div class="faq">
+      <h3 data-i18n="orthodontics.faq.q1">How long does treatment take?</h3>
+      <p data-i18n="orthodontics.faq.a1">On average, 12 to 24 months, depending on the complexity and patient compliance.</p>
+      
+      <h3 data-i18n="orthodontics.faq.q2">Are clear aligners as effective as braces?</h3>
+      <p data-i18n="orthodontics.faq.a2">Yes, for mild to moderate cases. Severe issues may still require braces.</p>
+      
+      <h3 data-i18n="orthodontics.faq.q3">Is orthodontic treatment painful?</h3>
+      <p data-i18n="orthodontics.faq.a3">Mild discomfort is common after adjustments, but it subsides quickly.</p>
+      
+      <h3 data-i18n="orthodontics.faq.q4">Can I eat normally during treatment?</h3>
+      <p data-i18n="orthodontics.faq.a4">With braces, avoid hard or sticky foods. Aligners are removed while eating.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta-section fade-in">
+  <div class="container narrow center">
+    <h2 class="section-title" style="color: #fff; margin-bottom: 10px;">Book Your Free Consultation Today!</h2>
+    <p style="color: #fff; margin-bottom: 14px;">Let us restore your smile with the most advanced dental implant solutions.</p>
+    <a href="../pages/contacts.html" class="btn primary">Reserve Now</a>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section contact fade-in" id="contact">
+  <div class="container narrow">
+    <h2 class="section-title">How Can You Find Us?</h2>
+    <p><strong>Location:</strong> 123 Example Street, Your City</p>
+    <p><strong>Phone:</strong> +1 (555) 010-0100</p>
+    <div class="map-placeholder" id="map-preview" role="img" aria-label="Sample map placeholder"><i class="fas fa-map-location-dot" aria-hidden="true"></i><p data-i18n="map_placeholder">Map preview placeholder</p></div>
+  <div class="hero-buttons">
+    <a href="../pages/contacts.html#contact-form" class="btn primary" data-i18n="book">Book Appointment</a>
+  </div>
+  </div>
+</section>
+
+<!-- SVG divider: contact -> questions -->
+<div class="section-divider wave-down">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 C600,100 600,20 1200,0 L1200,120 L0,120 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+<!-- Questions Section -->
+<section class="section beige fade-in">
+  <div class="container narrow">
+    <h2 class="section-title">Questions about your treatment?</h2>
+    <p>Feel free to email us or book an appointment now.</p>
+    <div class="hero-buttons" style="margin-top: 20px;">
+      <a href="mailto:hello@example.com" class="btn secondary">Message Us</a>
+      <a href="../pages/contacts.html#contact-form" class="btn primary">Book Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer fade-in">
+  <div class="footer-grid">
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="../pages/treatments.html">Services</a></li>
+        <li><a href="../pages/pricing.html">Pricing</a></li>
+        <li><a href="../pages/team.html">Team</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Disclaimer</h4>
+      <p>This is a presentation template. Replace all clinic details, pricing, team information, and testimonials before publishing.</p>
+    </div>
+    <div class="contactfootercontent">
+      <h4>Contact</h4>
+      <p>123 Example Street, Your City<br>Phone: +1 (555) 010-0100<br>Email: hello@example.com</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="copyright">
+    © 2025 Your Dental Clinic. Sample presentation content.
+  </div>
+</footer>
+
+<button id="scrollToTopBtn"><i class="fas fa-chevron-up"></i></button>
+
+
+    <script>
+// ======================
+// ORTHODONTICS TRANSLATIONS
+// ======================
+const orthodonticsTranslations = {
+  al: {
+    title: "Një buzëqeshje më e drejtë, një e ardhme më e shëndetshme — Zbuloni fuqinë e ortodonçisë moderne",
+    intro: "Zgjidhje të personalizuara me aparate dentare ose aligner-a të tejdukshëm, të përshtatura për nevojat dhe rehatinë tuaj.",
+    steps: {
+      step1: "Konsultimi fillestar: Një ekzaminim i plotë që përfshin foto, rreze X dhe diskutimin e objektivave të buzëqeshjes suaj.",
+      step2: "Impresione digjitale / Rreze X: Imazheria e avancuar krijon një hartë të saktë të dhëmbëve për planifikimin e trajtimit.",
+      step3: "Plani i personalizuar i trajtimit: Zgjedhja midis aparateve dentare ose aligner-ëve.",
+      step4: "Vendosja e aparateve / aligner-ëve: Pajisja vendoset ose dorëzohet dhe fillon udhëtimi juaj.",
+      step5: "Rregullime dhe kontrolle të rregullta: Vizita rutinë për të siguruar progresin e duhur.",
+      step6: "Rezultatet përfundimtare dhe mbajtëset: Pasi dhëmbët janë drejt, mbajtëset ruajnë buzëqeshjen tuaj."
+    },
+    braces_vs_aligners: {
+      braces: "Aparate dentare: Ideale për korrigjime komplekse. Disponohen në metal ose qeramikë. Fiks dhe gjithmonë aktiv.",
+      aligners: "Aligner-a të tejdukshëm: Gati të padukshëm, të heqshëm dhe të rehatshëm. Të përsosur për trajtime estetike dhe fleksibël."
+    },
+    faq: {
+      q1: "Sa zgjat trajtimi?",
+      a1: "Mesatarisht, 12 deri në 24 muaj, në varësi të kompleksitetit dhe përkushtimit të pacientit.",
+      q2: "A janë aligner-ët po aq efektivë sa aparatet?",
+      a2: "Po, për raste të lehta deri mesatare. Problemet e rënda mund të kërkojnë ende aparate.",
+      q3: "A është trajtimi ortodontik i dhimbshëm?",
+      a3: "Pas rregullimeve mund të ketë siklet të lehtë, por zakonisht kalon shpejt.",
+      q4: "A mund të ha normalisht gjatë trajtimit?",
+      a4: "Me aparate duhet të shmangni ushqimet e forta ose ngjitëse. Aligner-ët hiqen gjatë ngrënies."
+    }
+  },
+  it: {
+    title: "Un sorriso più dritto, un futuro più sano — Scopri la potenza dell'ortodonzia moderna",
+    intro: "Soluzioni personalizzate con apparecchi o allineatori trasparenti, su misura per le tue esigenze e il tuo comfort.",
+    steps: {
+      step1: "Consulto iniziale: Esame completo che include foto, radiografie e discussione degli obiettivi del sorriso.",
+      step2: "Impronte digitali / Radiografie: Imaging avanzato crea una mappa precisa dei denti per la pianificazione del trattamento.",
+      step3: "Piano di trattamento personalizzato: Scelta tra apparecchi o allineatori.",
+      step4: "Applicazione apparecchi / allineatori: Il dispositivo viene posizionato o consegnato e inizia il tuo percorso.",
+      step5: "Regolazioni e controlli periodici: Visite di routine per garantire che tutto proceda correttamente.",
+      step6: "Risultati finali e retainer: Una volta allineati, i retainer mantengono il nuovo sorriso."
+    },
+    braces_vs_aligners: {
+      braces: "Apparecchi: Ideali per correzioni complesse. Disponibili in metallo o ceramica. Fissi e sempre attivi.",
+      aligners: "Allineatori trasparenti: Quasi invisibili, rimovibili e confortevoli. Ottimi per trattamenti estetici e flessibili."
+    },
+    faq: {
+      q1: "Quanto dura il trattamento?",
+      a1: "In media, da 12 a 24 mesi, a seconda della complessità e della collaborazione del paziente.",
+      q2: "Gli allineatori sono efficaci quanto gli apparecchi?",
+      a2: "Sì, per casi lievi o moderati. I problemi gravi possono richiedere ancora gli apparecchi.",
+      q3: "Il trattamento ortodontico è doloroso?",
+      a3: "Un lieve fastidio è comune dopo le regolazioni, ma passa rapidamente.",
+      q4: "Posso mangiare normalmente durante il trattamento?",
+      a4: "Con gli apparecchi bisogna evitare cibi duri o appiccicosi. Gli allineatori si rimuovono durante i pasti."
+    }
+  }
+};
+
+
+function updateLanguage(lang) {
+  if (lang === "en") {
+    // Reload page to restore original English text
+    location.reload();
+    return;
+  }
+
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const keys = el.getAttribute("data-i18n").split(".");
+    let text = orthodonticsTranslations[lang];
+
+    if (keys[0] === "orthodontics") {
+      keys.shift();
+    }
+
+    keys.forEach(k => {
+      if (text) text = text[k];
+    });
+
+    if (typeof text === "string") {
+      el.innerHTML = text;
+    }
+  });
+}
+
+// ======================
+// EVENT LISTENER FOR NAVBAR SELECT
+// ======================
+document.getElementById("language").addEventListener("change", function() {
+  updateLanguage(this.value);
+});
+</script>
+
+</body>
+</html>

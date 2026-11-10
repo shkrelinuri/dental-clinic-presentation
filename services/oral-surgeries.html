@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Dental Clinic - Oral Surgery</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <script defer src="../js/translations.js"></script>
+  <script defer src="../script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="icon" type="image/svg+xml" href="../images/generic-dental-logo.svg">
+  <style>
+    /* === Section Styles === */
+    .section { padding: 44px 20px; position: relative; }
+    .section.beige { background: #fdf7f1; }
+    .container.narrow { max-width: 900px; margin: 0 auto; padding: 0 18px; }
+    .section-title {
+      font-size: 1.95rem;
+      font-weight: 700;
+      color: #222;
+      text-align: center;
+      margin-bottom: 18px;
+      line-height: 1.15;
+    }
+    .intro-text { color: #4b4b4b; text-align: center; font-size: 1.05rem; margin-bottom: 18px; }
+
+    /* === Checklist === */
+    .checklist { list-style: none; padding: 0; margin: 0 auto; max-width: 760px; }
+    .checklist li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 10px;
+      color: #444;
+    }
+    .checklist li::before {
+      content: "\f00c";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #b28756;
+      font-size: 0.9rem;
+    }
+
+    /* === Alternating Steps Layout === */
+    .procedure-steps { display: flex; flex-direction: column; gap: 40px; margin-top: 20px; }
+    .procedure-step {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .procedure-step:nth-child(even) { flex-direction: row-reverse; }
+    .step-text { flex: 1; min-width: 280px; }
+    .step-text strong { color: #b28756; }
+    .step-image { flex: 1; min-width: 280px; position: relative; }
+    .step-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 22px rgba(13,13,13,0.06);
+    }
+    .step-number {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 36px;
+      height: 36px;
+      line-height: 36px;
+      text-align: center;
+      border-radius: 50%;
+      background: #b28756;
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 6px 14px rgba(178,135,86,0.18);
+      z-index: 2;
+      font-size: 16px;
+    }
+
+    /* === CTA === */
+    .cta-section {
+      background: #b28756;
+      color: #fff;
+      text-align: center;
+      padding: 36px 18px;
+    }
+    .btn {
+      background: #b28756;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .btn:hover { background: #946a41; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .procedure-step { flex-direction: column !important; text-align: center; }
+      .procedure-step:nth-child(even) { flex-direction: column !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top Navbar -->
+<header class="top-navbar" style="margin-bottom: 0;">
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+  </div>
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Cerca..." />
+  </div>
+  <div class="language-select">
+    <select id="language">
+      <option value="en">EN</option>
+      <option value="it">IT</option>
+      <option value="al">AL</option>
+    </select>
+  </div>
+</header>
+
+<nav class="dentozen-navbar" style="margin-top: 0;">
+  <div class="nav-content">
+    <div class="logo">
+      <a href="../index.html">
+        <img src="../images/generic-dental-logo.svg" alt="Your Dental Clinic" />
+      </a>
+    </div>
+    <button class="hamburger" type="button" aria-label="Open navigation menu" aria-controls="navLinks" aria-expanded="false"><i class="fas fa-bars"></i></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../pages/aboutus.html" data-i18n="nav_about">Chi Siamo</a></li>
+      <li><a href="../pages/testimonials.html" data-i18n="nav_reviews">Recensioni</a></li>
+      <li><a href="../pages/treatments.html" data-i18n="nav_services">Trattamenti</a></li>
+      <li><a href="../pages/pricing.html" data-i18n="nav_pricing">Prezzi</a></li>
+      <li><a href="../pages/team.html" data-i18n="nav_team">Team</a></li>
+      <li><a href="../pages/contacts.html" data-i18n="nav_contact">Contatti</a></li>
+      <li class="nav-appointment"><a class="appointment-btn" href="../pages/contacts.html#contact-form" data-i18n="book">Prenota una Visita</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Service Overview -->
+<section class="section beige">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="surgery.title">
+      Chirurgia orale – salute e comfort a lungo termine
+    </h2>
+    <p class="intro-text" data-i18n="surgery.intro">
+      La chirurgia orale comprende un’ampia gamma di interventi, dalle semplici estrazioni dei denti ai trattamenti chirurgici più complessi, per garantire la salute della bocca e il tuo comfort nel tempo.
+    </p>
+    <div class="image-center">
+      <img src="../images/oral-surgery.jpg" alt="Chirurgia orale" class="service-image" />
+    </div>
+  </div>
+</section>
+
+<!-- SVG divider -->
+<div class="section-divider wave-up">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,120 C600,20 600,100 1200,120 L1200,0 L0,0 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+<!-- Types of Surgeries -->
+<section class="section">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="surgery.types_title">Interventi di chirurgia orale più comuni</h2>
+    <ul class="checklist">
+      <li data-i18n="surgery.types.extractions">Estrazioni dentarie – comprese le rimozioni dei denti del giudizio</li>
+      <li data-i18n="surgery.types.implants">Impianti dentali – inserimento chirurgico di radici in titanio</li>
+      <li data-i18n="surgery.types.gum">Chirurgia gengivale – per il trattamento della malattia parodontale</li>
+      <li data-i18n="surgery.types.bone">Rigenerazione / innesto osseo – ricostruzione dell’osso mascellare per gli impianti</li>
+      <li data-i18n="surgery.types.biopsies">Biopsie orali – prelievo di tessuto a scopo diagnostico</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Divider -->
+<div class="section-divider wave-down">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 C600,100 600,20 1200,0 L1200,120 L0,120 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+<!-- Procedure Steps -->
+<section class="section beige">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="surgery.procedure_title">Come si svolge un intervento di chirurgia orale</h2>
+    <div class="procedure-steps">
+      <div class="procedure-step">
+        <div class="step-text" data-i18n="surgery.procedure.step1">
+          <strong>1. Visita e radiografie:</strong> radiografie e/o TAC ci aiutano a pianificare l’intervento in sicurezza.
+        </div>
+      </div>
+      <div class="procedure-step">
+        <div class="step-text" data-i18n="surgery.procedure.step2">
+          <strong>2. Anestesia:</strong> viene effettuata anestesia locale o generale per garantirti il massimo comfort.
+        </div>
+      </div>
+      <div class="procedure-step">
+        <div class="step-text" data-i18n="surgery.procedure.step3">
+          <strong>3. Intervento chirurgico:</strong> il dentista o il chirurgo esegue la procedura con la massima precisione.
+        </div>
+      </div>
+      <div class="procedure-step">
+        <div class="step-text" data-i18n="surgery.procedure.step4">
+          <strong>4. Controllo post-operatorio:</strong> dopo l’intervento il paziente viene monitorato finché è stabile.
+        </div>
+      </div>
+      <div class="procedure-step">
+        <div class="step-text" data-i18n="surgery.procedure.step5">
+          <strong>5. Controlli e guarigione:</strong> vengono fornite istruzioni dettagliate per la guarigione e gli appuntamenti di controllo.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Divider -->
+<div class="section-divider wave-up">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,120 C600,20 600,100 1200,120 L1200,0 L0,0 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+<!-- Why Trust Us -->
+<section class="section">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="surgery.sales_title">Perché scegliere la nostra chirurgia orale?</h2>
+    <ul class="checklist">
+      <li data-i18n="surgery.sales.tip1">Chirurghi e specialisti con grande esperienza</li>
+      <li data-i18n="surgery.sales.tip2">Tecniche moderne di anestesia e gestione del dolore</li>
+      <li data-i18n="surgery.sales.tip3">Ambiente chirurgico sicuro e sterile</li>
+      <li data-i18n="surgery.sales.tip4">Assistenza completa nel post-operatorio</li>
+      <li data-i18n="surgery.sales.tip5">Il recupero e i controlli successivi dipendono dalla procedura e dalle esigenze individuali</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Divider -->
+<div class="section-divider wave-down">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 C600,100 600,20 1200,0 L1200,120 L0,120 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+<!-- FAQ -->
+<section class="section beige">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="faq.title">Domande frequenti</h2>
+    <div class="faq">
+      <h3 data-i18n="faq.q1">La chirurgia orale è dolorosa?</h3>
+      <p data-i18n="faq.a1">Comfort e gestione del dolore variano in base alla procedura e alla persona. Il professionista discuterà le opzioni disponibili.</p>
+
+      <h3 data-i18n="faq.q2">Quanto dura il recupero?</h3>
+      <p data-i18n="faq.a2">La maggior parte dei pazienti guarisce in pochi giorni, ma per interventi più complessi può essere necessario un tempo di guarigione più lungo.</p>
+
+      <h3 data-i18n="faq.q3">Posso tornare a casa lo stesso giorno?</h3>
+      <p data-i18n="faq.a3">Il ritorno a casa dipende dal tipo di procedura e dalle condizioni individuali. Il professionista fornirà indicazioni prima del trattamento.</p>
+
+      <h3 data-i18n="faq.q4">Cosa posso mangiare dopo l’intervento?</h3>
+      <p data-i18n="faq.a4">Per i primi giorni sono consigliati cibi morbidi come yogurt, zuppe e frullati.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta-section fade-in">
+  <div class="container narrow center">
+    <h2 class="section-title" style="color: #fff; margin-bottom: 10px;" data-i18n="cta.title">Prenota oggi la tua consulenza gratuita!</h2>
+    <p style="color: #fff; margin-bottom: 14px;" data-i18n="cta.text">Lascia che ti restituiamo il sorriso con le soluzioni di chirurgia orale più avanzate.</p>
+    <a href="../pages/contacts.html" class="btn primary" data-i18n="cta.button">Prenota ora</a>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section contact fade-in" id="contact">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="contact.title">Come puoi trovarci?</h2>
+    <p data-i18n="contact.location"><strong>Indirizzo:</strong> 123 Example Street, Your City</p>
+    <p data-i18n="contact.phone"><strong>Telefono:</strong> +1 (555) 010-0100</p>
+    <div class="map-placeholder" id="map-preview" role="img" aria-label="Sample map placeholder"><i class="fas fa-map-location-dot" aria-hidden="true"></i><p data-i18n="map_placeholder">Map preview placeholder</p></div>
+    <div class="hero-buttons">
+      <a href="../pages/contacts.html#contact-form" class="btn primary" data-i18n="book">Prenota una Visita</a>
+    </div>
+  </div>
+</section>
+
+<!-- SVG divider: contact -> questions -->
+<div class="section-divider wave-down">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 C600,100 600,20 1200,0 L1200,120 L0,120 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+<!-- Questions Section -->
+<section class="section beige fade-in">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="questions.title">Domande sul tuo trattamento?</h2>
+    <p data-i18n="questions.text">Scrivici via e-mail oppure prenota subito una visita.</p>
+    <div class="hero-buttons" style="margin-top: 20px;">
+      <a href="mailto:hello@example.com" class="btn secondary" data-i18n="questions.btn.message">Scrivici</a>
+      <a href="../pages/contacts.html#contact-form" class="btn primary" data-i18n="questions.btn.book">Prenota ora</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer fade-in">
+  <div class="footer-grid">
+    <div>
+      <h4 data-i18n="footer.quicklinks.title">Link rapidi</h4>
+      <ul>
+        <li><a href="../pages/treatments.html" data-i18n="footer.quicklinks.services">Trattamenti</a></li>
+        <li><a href="../pages/pricing.html" data-i18n="footer.quicklinks.pricing">Prezzi</a></li>
+        <li><a href="../pages/team.html" data-i18n="footer.quicklinks.team">Team</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 data-i18n="footer.disclaimer.title">Disclaimer</h4>
+      <p data-i18n="footer.disclaimer.text">
+        Questo è un modello dimostrativo. Sostituisci i dettagli della clinica, i prezzi, il team e le testimonianze prima della pubblicazione.
+      </p>
+    </div>
+    <div class="contactfootercontent">
+      <h4 data-i18n="footer.contact.title">Contatti</h4>
+      <p data-i18n="footer.contact.text">
+        123 Example Street, Your City<br>Telefono: +1 (555) 010-0100<br>Email: hello@example.com
+      </p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="copyright" data-i18n="footer.copyright">
+    © 2025 Your Dental Clinic. Contenuto dimostrativo.
+  </div>
+</footer>
+
+<button id="scrollToTopBtn"><i class="fas fa-chevron-up"></i></button>
+
+<!-- Inline language JS -->
+<script>
+  (function() {
+    const translations = {
+      en: {
+        "search.placeholder": "Search...",
+
+        "nav.about": "About Us",
+        "nav.reviews": "Reviews",
+        "nav.services": "Services",
+        "nav.pricing": "Pricing",
+        "nav.team": "Team",
+        "nav.contact": "Contact",
+        "nav.appointment": "Book Appointment",
+
+        "surgery.title": "Oral Surgery – Restoring Health and Comfort",
+        "surgery.intro": "Oral surgery covers a wide range of procedures, from simple tooth extractions to complex surgical treatments, ensuring your oral health and long-term comfort.",
+
+        "surgery.types_title": "Common Oral Surgeries",
+        "surgery.types.extractions": "Tooth Extractions – including wisdom teeth",
+        "surgery.types.implants": "Dental Implants – surgical placement of titanium roots",
+        "surgery.types.gum": "Gum Surgery – to treat periodontal disease",
+        "surgery.types.bone": "Bone Grafting – rebuilding jawbone for implants",
+        "surgery.types.biopsies": "Oral Biopsies – diagnostic tissue sampling",
+
+        "surgery.procedure_title": "How Oral Surgery Works",
+        "surgery.procedure.step1": "<strong>1. Examination & Imaging:</strong> X-rays and scans help plan the surgery safely.",
+        "surgery.procedure.step2": "<strong>2. Anesthesia:</strong> Local or general anesthesia is given to ensure comfort.",
+        "surgery.procedure.step3": "<strong>3. Surgical Procedure:</strong> The dentist or surgeon performs the treatment with precision.",
+        "surgery.procedure.step4": "<strong>4. Recovery Monitoring:</strong> After the procedure, patients are observed until stable.",
+        "surgery.procedure.step5": "<strong>5. Aftercare & Healing:</strong> Detailed instructions for healing and follow-ups are provided.",
+
+        "surgery.sales_title": "Why Choose Our Oral Surgery?",
+        "surgery.sales.tip1": "Experienced surgeons and specialists",
+        "surgery.sales.tip2": "Modern anesthesia and pain management",
+        "surgery.sales.tip3": "Safe, sterile surgical environment",
+        "surgery.sales.tip4": "Comprehensive aftercare support",
+        "surgery.sales.tip5": "Recovery and follow-up depend on the procedure and individual needs",
+
+        "faq.title": "Frequently Asked Questions",
+        "faq.q1": "Is oral surgery painful?",
+        "faq.a1": "Comfort and pain management vary by person and procedure. A dental professional can discuss the available options.",
+        "faq.q2": "How long is recovery time?",
+        "faq.a2": "Most patients recover in a few days, but complex surgeries may require longer healing.",
+        "faq.q3": "Can I go home the same day?",
+        "faq.a3": "Returning home depends on the procedure and individual circumstances. A dental professional will provide guidance before treatment.",
+        "faq.q4": "What should I eat after surgery?",
+        "faq.a4": "Soft foods like yogurt, soups, and smoothies are recommended for the first few days.",
+
+        "cta.title": "Book Your Free Consultation Today!",
+        "cta.text": "Let us restore your smile with the most advanced dental implant solutions.",
+        "cta.button": "Reserve Now",
+
+        "contact.title": "How Can You Find Us?",
+        "contact.location": "<strong>Location:</strong> 123 Example Street, Your City",
+        "contact.phone": "<strong>Phone:</strong> +1 (555) 010-0100",
+        "book": "Book Appointment",
+
+        "questions.title": "Questions about your treatment?",
+        "questions.text": "Feel free to email us or book an appointment now.",
+        "questions.btn.message": "Message Us",
+        "questions.btn.book": "Book Now",
+
+        "footer.quicklinks.title": "Quick Links",
+        "footer.quicklinks.services": "Services",
+        "footer.quicklinks.pricing": "Pricing",
+        "footer.quicklinks.team": "Team",
+        "footer.disclaimer.title": "Disclaimer",
+        "footer.disclaimer.text": "This is a presentation template. Replace all clinic details, pricing, team information, and testimonials before publishing.",
+        "footer.contact.title": "Contact",
+        "footer.contact.text": "123 Example Street, Your City<br>Phone: +1 (555) 010-0100<br>Email: hello@example.com",
+        "footer.copyright": "© 2025 Your Dental Clinic. Sample presentation content."
+      },
+
+      it: {
+        "search.placeholder": "Cerca...",
+
+        "nav.about": "Chi Siamo",
+        "nav.reviews": "Recensioni",
+        "nav.services": "Trattamenti",
+        "nav.pricing": "Prezzi",
+        "nav.team": "Team",
+        "nav.contact": "Contatti",
+        "nav.appointment": "Prenota una Visita",
+
+        "surgery.title": "Chirurgia orale – salute e comfort a lungo termine",
+        "surgery.intro": "La chirurgia orale comprende un’ampia gamma di interventi, dalle semplici estrazioni dei denti ai trattamenti chirurgici più complessi, per garantire la salute della bocca e il tuo comfort nel tempo.",
+
+        "surgery.types_title": "Interventi di chirurgia orale più comuni",
+        "surgery.types.extractions": "Estrazioni dentarie – comprese le rimozioni dei denti del giudizio",
+        "surgery.types.implants": "Impianti dentali – inserimento chirurgico di radici in titanio",
+        "surgery.types.gum": "Chirurgia gengivale – per il trattamento della malattia parodontale",
+        "surgery.types.bone": "Rigenerazione / innesto osseo – ricostruzione dell’osso mascellare per gli impianti",
+        "surgery.types.biopsies": "Biopsie orali – prelievo di tessuto a scopo diagnostico",
+
+        "surgery.procedure_title": "Come si svolge un intervento di chirurgia orale",
+        "surgery.procedure.step1": "<strong>1. Visita e radiografie:</strong> radiografie e/o TAC ci aiutano a pianificare l’intervento in sicurezza.",
+        "surgery.procedure.step2": "<strong>2. Anestesia:</strong> viene effettuata anestesia locale o generale per garantirti il massimo comfort.",
+        "surgery.procedure.step3": "<strong>3. Intervento chirurgico:</strong> il dentista o il chirurgo esegue la procedura con la massima precisione.",
+        "surgery.procedure.step4": "<strong>4. Controllo post-operatorio:</strong> dopo l’intervento il paziente viene monitorato finché è stabile.",
+        "surgery.procedure.step5": "<strong>5. Controlli e guarigione:</strong> vengono fornite istruzioni dettagliate per la guarigione e gli appuntamenti di controllo.",
+
+        "surgery.sales_title": "Perché scegliere la nostra chirurgia orale?",
+        "surgery.sales.tip1": "Chirurghi e specialisti con grande esperienza",
+        "surgery.sales.tip2": "Tecniche moderne di anestesia e gestione del dolore",
+        "surgery.sales.tip3": "Ambiente chirurgico sicuro e sterile",
+        "surgery.sales.tip4": "Assistenza completa nel post-operatorio",
+        "surgery.sales.tip5": "Il recupero e i controlli successivi dipendono dalla procedura e dalle esigenze individuali",
+
+        "faq.title": "Domande frequenti",
+        "faq.q1": "La chirurgia orale è dolorosa?",
+        "faq.a1": "Comfort e gestione del dolore variano in base alla procedura e alla persona. Il professionista discuterà le opzioni disponibili.",
+        "faq.q2": "Quanto dura il recupero?",
+        "faq.a2": "La maggior parte dei pazienti guarisce in pochi giorni, ma per interventi più complessi può essere necessario un tempo di guarigione più lungo.",
+        "faq.q3": "Posso tornare a casa lo stesso giorno?",
+        "faq.a3": "Il ritorno a casa dipende dal tipo di procedura e dalle condizioni individuali. Il professionista fornirà indicazioni prima del trattamento.",
+        "faq.q4": "Cosa posso mangiare dopo l’intervento?",
+        "faq.a4": "Per i primi giorni sono consigliati cibi morbidi come yogurt, zuppe e frullati.",
+
+        "cta.title": "Prenota oggi la tua consulenza gratuita!",
+        "cta.text": "Lascia che ti restituiamo il sorriso con le soluzioni di chirurgia orale più avanzate.",
+        "cta.button": "Prenota ora",
+
+        "contact.title": "Come puoi trovarci?",
+        "contact.location": "<strong>Indirizzo:</strong> 123 Example Street, Your City",
+        "contact.phone": "<strong>Telefono:</strong> +1 (555) 010-0100",
+        "book": "Prenota una Visita",
+
+        "questions.title": "Domande sul tuo trattamento?",
+        "questions.text": "Scrivici via e-mail oppure prenota subito una visita.",
+        "questions.btn.message": "Scrivici",
+        "questions.btn.book": "Prenota ora",
+
+        "footer.quicklinks.title": "Link rapidi",
+        "footer.quicklinks.services": "Trattamenti",
+        "footer.quicklinks.pricing": "Prezzi",
+        "footer.quicklinks.team": "Team",
+        "footer.disclaimer.title": "Disclaimer",
+        "footer.disclaimer.text": "Questo è un modello dimostrativo. Sostituisci i dettagli della clinica, i prezzi, il team e le testimonianze prima della pubblicazione.",
+        "footer.contact.title": "Contatti",
+        "footer.contact.text": "123 Example Street, Your City<br>Telefono: +1 (555) 010-0100<br>Email: hello@example.com",
+        "footer.copyright": "© 2025 Your Dental Clinic. Contenuto dimostrativo."
+      }
+    };
+
+    function applyTranslations(lang) {
+      const elements = document.querySelectorAll("[data-i18n]");
+      elements.forEach(el => {
+        const key = el.dataset.i18n;
+        const value = translations[lang] && translations[lang][key];
+        if (value) {
+          el.innerHTML = value;
+        }
+      });
+
+      const searchInput = document.getElementById("searchInput");
+      if (searchInput && translations[lang] && translations[lang]["search.placeholder"]) {
+        searchInput.setAttribute("placeholder", translations[lang]["search.placeholder"]);
+      }
+
+      document.documentElement.lang = lang;
+    }
+
+          function loadSavedLanguage() {
+        try { return localStorage.getItem("siteLanguage"); }
+        catch (error) { if (error.name !== "SecurityError") throw error; return null; }
+      }
+      function persistLanguage(language) {
+        try { localStorage.setItem("siteLanguage", language); }
+        catch (error) { if (error.name !== "SecurityError") throw error; }
+      }
+      document.addEventListener("DOMContentLoaded", function() {
+      if (document.documentElement.lang === "al") return;
+const select = document.getElementById("language");
+      const savedLang = new URLSearchParams(location.search).get("lang") || loadSavedLanguage() || "it";
+      const initialLang = (savedLang === "en" || savedLang === "it") ? savedLang : "it";
+
+      if (select) {
+        select.value = initialLang;
+      }
+      applyTranslations(initialLang);
+
+      if (select) {
+        select.addEventListener("change", function() {
+          const lang = select.value;
+          // Only EN/IT have translations defined here; others default to EN
+          const effectiveLang = (lang === "it" || lang === "en") ? lang : "en";
+          persistLanguage(effectiveLang);
+          applyTranslations(effectiveLang);
+        });
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>

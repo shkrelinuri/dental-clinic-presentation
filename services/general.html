@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Dental Clinic - General Dentistry</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <script defer src="../js/translations.js"></script>
+  <script defer src="../script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="icon" type="image/svg+xml" href="../images/generic-dental-logo.svg">
+  <style>
+    /* === Section Styles === */
+    .section { padding: 44px 20px; position: relative; }
+    .section.beige { background: #fdf7f1; }
+    .container.narrow { max-width: 900px; margin: 0 auto; padding: 0 18px; }
+    .section-title {
+      font-size: 1.95rem;
+      font-weight: 700;
+      color: #222;
+      text-align: center;
+      margin-bottom: 18px;
+      line-height: 1.15;
+    }
+    .intro-text { color: #4b4b4b; text-align: center; font-size: 1.05rem; margin-bottom: 18px; }
+
+    /* === Checklist === */
+    .checklist { list-style: none; padding: 0; margin: 0 auto; max-width: 760px; }
+    .checklist li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 10px;
+      color: #444;
+    }
+    .checklist li::before {
+      content: "\f00c";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #b28756;
+      font-size: 0.9rem;
+    }
+
+    /* === Alternating Steps Layout === */
+    .procedure-steps { display: flex; flex-direction: column; gap: 40px; margin-top: 20px; }
+    .procedure-step {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .procedure-step:nth-child(even) { flex-direction: row-reverse; }
+    .step-text { flex: 1; min-width: 280px; }
+    .step-text strong { color: #b28756; }
+    .step-image { flex: 1; min-width: 280px; position: relative; }
+    .step-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 22px rgba(13,13,13,0.06);
+    }
+    .step-number {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 36px;
+      height: 36px;
+      line-height: 36px;
+      text-align: center;
+      border-radius: 50%;
+      background: #b28756;
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 6px 14px rgba(178,135,86,0.18);
+      z-index: 2;
+      font-size: 16px;
+    }
+
+    /* === CTA === */
+    .cta-section {
+      background: #b28756;
+      color: #fff;
+      text-align: center;
+      padding: 36px 18px;
+    }
+    .btn {
+      background: #b28756;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .btn:hover { background: #946a41; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .procedure-step { flex-direction: column !important; text-align: center; }
+      .procedure-step:nth-child(even) { flex-direction: column !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top Navbar -->
+<header class="top-navbar" style="margin-bottom: 0;">
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+  </div>
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Cerca..." />
+  </div>
+  <div class="language-select">
+    <select id="language">
+      <option value="en">EN</option>
+      <option value="it">IT</option>
+      <option value="al">AL</option>
+    </select>
+  </div>
+</header>
+
+<nav class="dentozen-navbar" style="margin-top: 0;">
+  <div class="nav-content">
+    <div class="logo">
+      <a href="../index.html">
+        <img src="../images/generic-dental-logo.svg" alt="Your Dental Clinic" />
+      </a>
+    </div>
+    <button class="hamburger" type="button" aria-label="Open navigation menu" aria-controls="navLinks" aria-expanded="false"><i class="fas fa-bars"></i></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../pages/aboutus.html" data-i18n="nav_about">Chi Siamo</a></li>
+      <li><a href="../pages/testimonials.html" data-i18n="nav_reviews">Recensioni</a></li>
+      <li><a href="../pages/treatments.html" data-i18n="nav_services">Trattamenti</a></li>
+      <li><a href="../pages/pricing.html" data-i18n="nav_pricing">Prezzi</a></li>
+      <li><a href="../pages/team.html" data-i18n="nav_team">Team</a></li>
+      <li><a href="../pages/contacts.html" data-i18n="nav_contact">Contatti</a></li>
+      <li class="nav-appointment"><a class="appointment-btn" href="../pages/contacts.html#contact-form" data-i18n="book">Prenota una Visita</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Service Overview -->
+<section class="section beige">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="general.title">
+      Al centro di ogni sorriso sano c'è prevenzione, precisione e cura del paziente — l'odontoiatria generale è dove iniziano i sorrisi sicuri.
+    </h2>
+    <p class="intro-text" data-i18n="general.intro">
+      L'odontoiatria generale si concentra sulla prevenzione, diagnosi e trattamento dei problemi dentali comuni. Forma la base della salute orale, trattando tutto dalle carie alle malattie gengivali e cure di emergenza.
+    </p>
+    <div class="image-center">
+      <img src="../images/composite-fillings.jpg" alt="Odontoiatria generale" class="service-image" />
+    </div>  
+  </div>
+</section>
+
+<!-- SVG divider: beige -> white (wave up) -->
+<div class="section-divider wave-up">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,120 C600,20 600,100 1200,120 L1200,0 L0,0 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+<!-- Why General Dentistry -->
+<section class="section">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="general.why_title">Trattamenti comuni</h2>
+    <ul class="checklist">
+      <li data-i18n="general.treatments.fillings">Otturazioni (composito o amalgama) – per trattare le carie</li>
+      <li data-i18n="general.treatments.extractions">Estrazioni dentali – per denti gravemente cariati o danneggiati</li>
+      <li data-i18n="general.treatments.root_canal">Trattamento canalare – per salvare denti infetti</li>
+      <li data-i18n="general.treatments.cleaning">Pulizia dentale (scaling e lucidatura) – per prevenire le malattie gengivali</li>
+      <li data-i18n="general.treatments.emergency">Cura dentale d'urgenza – per dolore improvviso, denti rotti o infezioni</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SVG divider: white -> beige (wave down) -->
+<div class="section-divider wave-down">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 C600,100 600,20 1200,0 L1200,120 L0,120 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+<!-- Procedure Steps -->
+<section class="section beige">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="general.procedure_title">Come funziona il trattamento di odontoiatria generale</h2>
+    <div class="procedure-steps">
+      <div class="procedure-step">
+        <div class="step-text" data-i18n="general.procedure.step1">
+          <strong>Consulto & Diagnosi:</strong> Include esame orale, radiografie e anamnesi.
+        </div>
+        <div class="step-image">
+          <span class="step-number">1</span>
+          <img src="../images/implantimg1.jpeg" alt="Fase 1 - Consulto & Diagnosi">
+        </div>
+      </div>
+      <div class="procedure-step">
+        <div class="step-text" data-i18n="general.procedure.step2">
+          <strong>Piano di trattamento:</strong> Il dentista spiega le opzioni e raccomanda il miglior approccio.
+        </div>
+        <div class="step-image">
+          <span class="step-number">2</span>
+          <img src="../images/treatment-plan.jpg" alt="Fase 2 - Piano di trattamento">
+        </div>
+      </div>
+      <div class="procedure-step">
+        <div class="step-text" data-i18n="general.procedure.step3">
+          <strong>Procedura:</strong> Eseguita con anestesia se necessario (es. otturazione, estrazione).
+        </div>
+        <div class="step-image">
+          <span class="step-number">3</span>
+          <img src="../images/procedure.jpg" alt="Fase 3 - Procedura">
+        </div>
+      </div>
+      <div class="procedure-step">
+        <div class="step-text" data-i18n="general.procedure.step4">
+          <strong>Cura post-trattamento & istruzioni:</strong> Il paziente riceve consigli per il recupero e l'igiene.
+        </div>
+        <div class="step-image">
+          <span class="step-number">4</span>
+          <img src="../images/followup.jpg" alt="Fase 4 - Cura post-trattamento & istruzioni">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SVG divider: beige -> white (wave up) -->
+<div class="section-divider wave-up">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,120 C600,20 600,100 1200,120 L1200,0 L0,0 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+<!-- Why Trust Us -->
+<section class="section">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="general.sales_title">Perché fidarsi della nostra odontoiatria generale?</h2>
+    <ul class="checklist">
+      <li data-i18n="general.sales.tip1">Opzioni di prevenzione e cura dentale</li>
+      <li data-i18n="general.sales.tip2">Discussione delle opzioni di igiene e trattamento</li>
+      <li data-i18n="general.sales.tip3">Una valutazione tempestiva aiuta a pianificare i passi successivi</li>
+      <li data-i18n="general.sales.tip4">Gli appuntamenti urgenti dipendono dalla disponibilità</li>
+      <li data-i18n="general.sales.tip5">Piani di cura basati sulle esigenze individuali</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SVG divider: white -> beige (wave down) -->
+<div class="section-divider wave-down">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 C600,100 600,20 1200,0 L1200,120 L0,120 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+<!-- FAQ -->
+<section class="section beige">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="general.faq_title">Domande frequenti</h2>
+    <div class="faq">
+      <h3 data-i18n="general.faq.q1">L'otturazione è dolorosa?</h3>
+      <p data-i18n="general.faq.a1">Per alcune otturazioni si può usare l’anestesia locale. Sensazioni e sensibilità variano; il professionista spiegherà cosa aspettarsi.</p>
+
+      <h3 data-i18n="general.faq.q2">Come faccio a sapere se ho bisogno di un trattamento canalare?</h3>
+      <p data-i18n="general.faq.a2">Segnali comuni includono dolore durante la masticazione, sensibilità prolungata al caldo o al freddo e gonfiore vicino al dente.</p>
+
+      <h3 data-i18n="general.faq.q3">L'estrazione dentale è sicura?</h3>
+      <p data-i18n="general.faq.a3">Sì, se eseguita da un professionista. La maggior parte delle estrazioni guarisce rapidamente con la cura adeguata.</p>
+
+      <h3 data-i18n="general.faq.q4">Ogni quanto devo fare una pulizia dentale?</h3>
+      <p data-i18n="general.faq.a4">La maggior parte dei dentisti consiglia pulizie ogni 6 mesi per prevenire placca e malattie gengivali.</p>
+
+      <h3 data-i18n="general.faq.q5">Cosa devo fare in caso di emergenza dentale?</h3>
+      <p data-i18n="general.faq.a5">Chiama immediatamente la clinica. Se c'è gonfiore, dolore o un dente rotto, il trattamento tempestivo è fondamentale.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta-section fade-in">
+  <div class="container narrow center">
+    <h2 class="section-title" style="color: #fff; margin-bottom: 10px;" data-i18n="cta.title">Prenota oggi la tua consulenza gratuita!</h2>
+    <p style="color: #fff; margin-bottom: 14px;" data-i18n="cta.text">Lascia che ti restituiamo il sorriso con le soluzioni di impianti dentali più avanzate.</p>
+    <a href="../pages/contacts.html" class="btn primary" data-i18n="cta.button">Prenota ora</a>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section contact fade-in" id="contact">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="contact.title">Come puoi trovarci?</h2>
+    <p data-i18n="contact.location"><strong>Indirizzo:</strong> 123 Example Street, Your City</p>
+    <p data-i18n="contact.phone"><strong>Telefono:</strong> +1 (555) 010-0100</p>
+    <div class="map-placeholder" id="map-preview" role="img" aria-label="Sample map placeholder"><i class="fas fa-map-location-dot" aria-hidden="true"></i><p data-i18n="map_placeholder">Map preview placeholder</p></div>
+    <div class="hero-buttons">
+      <a href="../pages/contacts.html#contact-form" class="btn primary" data-i18n="book">Prenota una Visita</a>
+    </div>
+  </div>
+</section>
+
+<!-- SVG divider: contact -> questions -->
+<div class="section-divider wave-down">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 C600,100 600,20 1200,0 L1200,120 L0,120 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+<!-- Questions Section -->
+<section class="section beige fade-in">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="questions.title">Domande sul tuo trattamento?</h2>
+    <p data-i18n="questions.text">Scrivici via e-mail oppure prenota subito una visita.</p>
+    <div class="hero-buttons" style="margin-top: 20px;">
+      <a href="mailto:hello@example.com" class="btn secondary" data-i18n="questions.btn.message">Scrivici</a>
+      <a href="../pages/contacts.html#contact-form" class="btn primary" data-i18n="questions.btn.book">Prenota ora</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer fade-in">
+  <div class="footer-grid">
+    <div>
+      <h4 data-i18n="footer.quicklinks.title">Link rapidi</h4>
+      <ul>
+        <li><a href="../pages/treatments.html" data-i18n="footer.quicklinks.services">Trattamenti</a></li>
+        <li><a href="../pages/pricing.html" data-i18n="footer.quicklinks.pricing">Prezzi</a></li>
+        <li><a href="../pages/team.html" data-i18n="footer.quicklinks.team">Team</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 data-i18n="footer.disclaimer.title">Disclaimer</h4>
+      <p data-i18n="footer.disclaimer.text">
+        Questo è un modello dimostrativo. Sostituisci i dettagli della clinica, i prezzi, il team e le testimonianze prima della pubblicazione.
+      </p>
+    </div>
+    <div class="contactfootercontent">
+      <h4 data-i18n="footer.contact.title">Contatti</h4>
+      <p data-i18n="footer.contact.text">
+        123 Example Street, Your City<br>Telefono: +1 (555) 010-0100<br>Email: hello@example.com
+      </p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="copyright" data-i18n="footer.copyright">
+    © 2025 Your Dental Clinic. Contenuto dimostrativo.
+  </div>
+</footer>
+
+<button id="scrollToTopBtn"><i class="fas fa-chevron-up"></i></button>
+
+<!-- Inline language JS -->
+<script>
+  (function() {
+    const translations = {
+      en: {
+        "search.placeholder": "Search...",
+
+        "nav.about": "About Us",
+        "nav.reviews": "Reviews",
+        "nav.services": "Services",
+        "nav.pricing": "Pricing",
+        "nav.team": "Team",
+        "nav.contact": "Contact",
+        "nav.appointment": "Book Appointment",
+
+        "general.title": "Healthy smiles start with prevention, precision, and care, general dentistry makes confidence possible.",
+        "general.intro": "General dentistry focuses on the prevention, diagnosis, and treatment of common dental problems. It forms the foundation of overall oral health, addressing everything from cavities and gum disease to emergency care.",
+
+        "general.why_title": "Common Treatments",
+        "general.treatments.fillings": "Fillings (Composite or Amalgam) – For treating cavities",
+        "general.treatments.extractions": "Tooth Extractions – For severely decayed or damaged teeth",
+        "general.treatments.root_canal": "Root Canal Treatment – To save infected teeth",
+        "general.treatments.cleaning": "Dental Cleaning (Scaling & Polishing) – To prevent gum disease",
+        "general.treatments.emergency": "Emergency Dental Care – For sudden pain, broken teeth, or infections",
+
+        "general.procedure_title": "How the General Dentistry Procedure Works",
+        "general.procedure.step1": "<strong>Consultation & Diagnosis:</strong> Includes oral exam, X-rays, and patient history.",
+        "general.procedure.step2": "<strong>Treatment Plan:</strong> Dentist explains options and recommends the best approach.",
+        "general.procedure.step3": "<strong>Procedure:</strong> Performed with anesthesia if necessary (e.g., filling, extraction).",
+        "general.procedure.step4": "<strong>Aftercare & Instructions:</strong> Patient is advised on recovery and hygiene.",
+
+        "general.sales_title": "Why Trust Our General Dentistry?",
+        "general.sales.tip1": "Preventive and general dental care options",
+        "general.sales.tip2": "Discussion of hygiene and treatment options",
+        "general.sales.tip3": "Timely assessment can help inform next steps",
+        "general.sales.tip4": "Urgent appointments depend on availability",
+        "general.sales.tip5": "Care plans based on individual needs",
+
+        "general.faq_title": "Frequently Asked Questions",
+        "general.faq.q1": "Is a dental filling painful?",
+        "general.faq.a1": "Local anesthesia may be used for some fillings. Sensations and sensitivity vary; a dental professional can explain what to expect.",
+        "general.faq.q2": "How do I know if I need a root canal?",
+        "general.faq.a2": "Common signs include pain when chewing, prolonged sensitivity to hot or cold, and swelling near the tooth.",
+        "general.faq.q3": "Is tooth extraction safe?",
+        "general.faq.a3": "Yes, when performed by a professional. Most extractions are simple and heal quickly with proper care.",
+        "general.faq.q4": "How often should I get a dental cleaning?",
+        "general.faq.a4": "Most dentists recommend cleanings every 6 months to prevent plaque buildup and gum disease.",
+        "general.faq.q5": "What should I do during a dental emergency?",
+        "general.faq.a5": "Call the clinic immediately. If you have swelling, pain, or a broken tooth, seek help right away.",
+
+        "cta.title": "Book Your Free Consultation Today!",
+        "cta.text": "Let us restore your smile with the most advanced dental implant solutions.",
+        "cta.button": "Reserve Now",
+
+        "contact.title": "How Can You Find Us?",
+        "contact.location": "<strong>Location:</strong> 123 Example Street, Your City",
+        "contact.phone": "<strong>Phone:</strong> +1 (555) 010-0100",
+        "book": "Book Appointment",
+
+        "questions.title": "Questions about your treatment?",
+        "questions.text": "Feel free to email us or book an appointment now.",
+        "questions.btn.message": "Message Us",
+        "questions.btn.book": "Book Now",
+
+        "footer.quicklinks.title": "Quick Links",
+        "footer.quicklinks.services": "Services",
+        "footer.quicklinks.pricing": "Pricing",
+        "footer.quicklinks.team": "Team",
+        "footer.disclaimer.title": "Disclaimer",
+        "footer.disclaimer.text": "This is a presentation template. Replace all clinic details, pricing, team information, and testimonials before publishing.",
+        "footer.contact.title": "Contact",
+        "footer.contact.text": "123 Example Street, Your City<br>Phone: +1 (555) 010-0100<br>Email: hello@example.com",
+        "footer.copyright": "© 2025 Your Dental Clinic. Sample presentation content."
+      },
+
+      it: {
+        "search.placeholder": "Cerca...",
+
+        "nav.about": "Chi Siamo",
+        "nav.reviews": "Recensioni",
+        "nav.services": "Trattamenti",
+        "nav.pricing": "Prezzi",
+        "nav.team": "Team",
+        "nav.contact": "Contatti",
+        "nav.appointment": "Prenota una Visita",
+
+        "general.title": "Al centro di ogni sorriso sano c'è prevenzione, precisione e cura del paziente — l'odontoiatria generale è dove iniziano i sorrisi sicuri.",
+        "general.intro": "L'odontoiatria generale si concentra sulla prevenzione, diagnosi e trattamento dei problemi dentali comuni. Forma la base della salute orale, trattando tutto dalle carie alle malattie gengivali e cure di emergenza.",
+
+        "general.why_title": "Trattamenti comuni",
+        "general.treatments.fillings": "Otturazioni (composito o amalgama) – per trattare le carie",
+        "general.treatments.extractions": "Estrazioni dentali – per denti gravemente cariati o danneggiati",
+        "general.treatments.root_canal": "Trattamento canalare – per salvare denti infetti",
+        "general.treatments.cleaning": "Pulizia dentale (scaling e lucidatura) – per prevenire le malattie gengivali",
+        "general.treatments.emergency": "Cura dentale d'urgenza – per dolore improvviso, denti rotti o infezioni",
+
+        "general.procedure_title": "Come funziona il trattamento di odontoiatria generale",
+        "general.procedure.step1": "<strong>Consulto & Diagnosi:</strong> Include esame orale, radiografie e anamnesi.",
+        "general.procedure.step2": "<strong>Piano di trattamento:</strong> Il dentista spiega le opzioni e raccomanda il miglior approccio.",
+        "general.procedure.step3": "<strong>Procedura:</strong> Eseguita con anestesia se necessario (es. otturazione, estrazione).",
+        "general.procedure.step4": "<strong>Cura post-trattamento & istruzioni:</strong> Il paziente riceve consigli per il recupero e l'igiene.",
+
+        "general.sales_title": "Perché fidarsi della nostra odontoiatria generale?",
+        "general.sales.tip1": "Opzioni di prevenzione e cura dentale",
+        "general.sales.tip2": "Discussione delle opzioni di igiene e trattamento",
+        "general.sales.tip3": "Una valutazione tempestiva aiuta a pianificare i passi successivi",
+        "general.sales.tip4": "Gli appuntamenti urgenti dipendono dalla disponibilità",
+        "general.sales.tip5": "Piani di cura basati sulle esigenze individuali",
+
+        "general.faq_title": "Domande frequenti",
+        "general.faq.q1": "L'otturazione è dolorosa?",
+        "general.faq.a1": "Per alcune otturazioni si può usare l’anestesia locale. Sensazioni e sensibilità variano; il professionista spiegherà cosa aspettarsi.",
+        "general.faq.q2": "Come faccio a sapere se ho bisogno di un trattamento canalare?",
+        "general.faq.a2": "Segnali comuni includono dolore durante la masticazione, sensibilità prolungata al caldo o al freddo e gonfiore vicino al dente.",
+        "general.faq.q3": "L'estrazione dentale è sicura?",
+        "general.faq.a3": "Sì, se eseguita da un professionista. La maggior parte delle estrazioni guarisce rapidamente con la cura adeguata.",
+        "general.faq.q4": "Ogni quanto devo fare una pulizia dentale?",
+        "general.faq.a4": "La maggior parte dei dentisti consiglia pulizie ogni 6 mesi per prevenire placca e malattie gengivali.",
+        "general.faq.q5": "Cosa devo fare in caso di emergenza dentale?",
+        "general.faq.a5": "Chiama immediatamente la clinica. Se c'è gonfiore, dolore o un dente rotto, il trattamento tempestivo è fondamentale.",
+
+        "cta.title": "Prenota oggi la tua consulenza gratuita!",
+        "cta.text": "Lascia che ti restituiamo il sorriso con le soluzioni di impianti dentali più avanzate.",
+        "cta.button": "Prenota ora",
+
+        "contact.title": "Come puoi trovarci?",
+        "contact.location": "<strong>Indirizzo:</strong> 123 Example Street, Your City",
+        "contact.phone": "<strong>Telefono:</strong> +1 (555) 010-0100",
+        "book": "Prenota una Visita",
+
+        "questions.title": "Domande sul tuo trattamento?",
+        "questions.text": "Scrivici via e-mail oppure prenota subito una visita.",
+        "questions.btn.message": "Scrivici",
+        "questions.btn.book": "Prenota ora",
+
+        "footer.quicklinks.title": "Link rapidi",
+        "footer.quicklinks.services": "Trattamenti",
+        "footer.quicklinks.pricing": "Prezzi",
+        "footer.quicklinks.team": "Team",
+        "footer.disclaimer.title": "Disclaimer",
+        "footer.disclaimer.text": "Questo è un modello dimostrativo. Sostituisci i dettagli della clinica, i prezzi, il team e le testimonianze prima della pubblicazione.",
+        "footer.contact.title": "Contatti",
+        "footer.contact.text": "123 Example Street, Your City<br>Telefono: +1 (555) 010-0100<br>Email: hello@example.com",
+        "footer.copyright": "© 2025 Your Dental Clinic. Contenuto dimostrativo."
+      }
+    };
+
+    function applyTranslations(lang) {
+      const elements = document.querySelectorAll("[data-i18n]");
+      elements.forEach(el => {
+        const key = el.dataset.i18n;
+        const value = translations[lang] && translations[lang][key];
+        if (value) {
+          el.innerHTML = value;
+        }
+      });
+
+      const searchInput = document.getElementById("searchInput");
+      if (searchInput && translations[lang] && translations[lang]["search.placeholder"]) {
+        searchInput.setAttribute("placeholder", translations[lang]["search.placeholder"]);
+      }
+
+      document.documentElement.lang = lang;
+    }
+
+          function loadSavedLanguage() {
+        try { return localStorage.getItem("siteLanguage"); }
+        catch (error) { if (error.name !== "SecurityError") throw error; return null; }
+      }
+      function persistLanguage(language) {
+        try { localStorage.setItem("siteLanguage", language); }
+        catch (error) { if (error.name !== "SecurityError") throw error; }
+      }
+      document.addEventListener("DOMContentLoaded", function() {
+      if (document.documentElement.lang === "al") return;
+const select = document.getElementById("language");
+      const savedLang = new URLSearchParams(location.search).get("lang") || loadSavedLanguage() || "it";
+      const initialLang = (savedLang === "en" || savedLang === "it") ? savedLang : "it";
+
+      if (select) {
+        select.value = initialLang;
+      }
+      applyTranslations(initialLang);
+
+      if (select) {
+        select.addEventListener("change", function() {
+          const lang = select.value;
+          const effectiveLang = (lang === "it" || lang === "en") ? lang : "en";
+          persistLanguage(effectiveLang);
+          applyTranslations(effectiveLang);
+        });
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>

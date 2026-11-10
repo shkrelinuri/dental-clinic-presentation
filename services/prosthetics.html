@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Dental Clinic - Dental Prosthetics</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <script defer src="../js/translations.js"></script>
+  <script defer src="../script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="icon" type="image/svg+xml" href="../images/generic-dental-logo.svg">
+<style>
+
+    /* === Section Styles === */
+    .section { padding: 44px 20px; position: relative; }
+    .section.beige { background: #fdf7f1; }
+    .container.narrow { max-width: 900px; margin: 0 auto; padding: 0 18px; }
+    .section-title {
+      font-size: 1.95rem;
+      font-weight: 700;
+      color: #222;
+      text-align: center;
+      margin-bottom: 18px;
+      line-height: 1.15;
+    }
+    .intro-text { color: #4b4b4b; text-align: center; font-size: 1.05rem; margin-bottom: 18px; }
+
+    /* === Checklist === */
+    .checklist { list-style: none; padding: 0; margin: 0 auto; max-width: 760px; }
+    .checklist li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 10px;
+      color: #444;
+    }
+    .checklist li::before {
+      content: "\f00c";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #b28756;
+      font-size: 0.9rem;
+    }
+
+
+    
+    .faq h3 {
+        font-size: 1.1rem;
+        margin-top: 20px;
+        color: #b28756;
+    }
+
+    /* === Alternating Steps Layout === */
+    .procedure-steps { display: flex; flex-direction: column; gap: 40px; margin-top: 20px; }
+    .procedure-step {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .procedure-step:nth-child(even) { flex-direction: row-reverse; }
+    .step-text { flex: 1; min-width: 280px; }
+    .step-text strong { color: #b28756; }
+    .step-image { flex: 1; min-width: 280px; position: relative; }
+    .step-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 22px rgba(13,13,13,0.06);
+    }
+    .step-number {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 36px;
+      height: 36px;
+      line-height: 36px;
+      text-align: center;
+      border-radius: 50%;
+      background: #b28756;
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 6px 14px rgba(178,135,86,0.18);
+      z-index: 2;
+      font-size: 16px;
+    }
+    /* PHOTO GRID */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2x2 grid */
+  gap: 20px; /* space between images */
+  margin-top: 20px;
+}
+
+.grid-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  aspect-ratio: 1 / 1; /* make all images square for uniform 2x2 grid */
+  transition: transform 0.3s ease;
+}
+
+.grid-item:hover img {
+  transform: scale(1.05);
+}
+
+    /* === CTA === */
+    .cta-section {
+      background: #b28756;
+      color: #fff;
+      text-align: center;
+      padding: 36px 18px;
+    }
+    .btn {
+      background: #b28756;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .btn:hover { background: #946a41; }
+
+/* responsive stacking for small screens */
+@media (max-width: 600px) {
+  .photo-grid {
+    grid-template-columns: 1fr; /* stack vertically on mobile */
+    gap: 15px;
+  }
+}
+
+/* section container spacing consistency */
+.section { padding: 44px 20px; }
+.section.beige { background: #fdf7f1; }
+.container.narrow { max-width: 900px; margin: 0 auto; padding: 0 18px; }  
+.section-title {
+  font-size: 1.95rem;
+  font-weight: 700;
+  color: #222;
+  text-align: center;
+  margin-bottom: 18px;
+  line-height: 1.15;
+  }
+
+/* svg divider utility */
+.section-divider {
+  display: block;
+  width: 100%;
+  height: 60px;
+}
+.section-divider svg { width: 100%; height: 100%; display: block; }
+
+/* CTA tweaks */
+.cta-section { background: #b28756; color: #fff; text-align: center; padding: 36px 18px; }
+.cta-section .btn { margin: 8px 6px; }
+
+</style>
+</head>
+<body>
+
+<!-- Top Navbar -->
+<header class="top-navbar" style="margin-bottom: 0;">
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+  </div>
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search..." />
+  </div>
+  <div class="language-select">
+    <select id="language">
+      <option value="en">EN</option>
+      <option value="it">IT</option>
+      <option value="al">AL</option>
+    </select>
+  </div>
+</header>
+
+<nav class="dentozen-navbar" style="margin-top: 0;">
+  <div class="nav-content">
+    <div class="logo">
+      <a href="../index.html">
+        <img src="../images/generic-dental-logo.svg" alt="Your Dental Clinic" />
+      </a>
+    </div>
+    <button class="hamburger" type="button" aria-label="Open navigation menu" aria-controls="navLinks" aria-expanded="false"><i class="fas fa-bars"></i></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../pages/aboutus.html" data-i18n="nav_about">About Us</a></li>
+      <li><a href="../pages/testimonials.html" data-i18n="nav_reviews">Reviews</a></li>
+      <li><a href="../pages/treatments.html" data-i18n="nav_services">Services</a></li>
+      <li><a href="../pages/pricing.html" data-i18n="nav_pricing">Pricing</a></li>
+      <li><a href="../pages/team.html" data-i18n="nav_team">Team</a></li>
+      <li><a href="../pages/contacts.html" data-i18n="nav_contact">Contact</a></li>
+      <li class="nav-appointment"><a class="appointment-btn" href="../pages/contacts.html#contact-form" data-i18n="book">Book Appointment</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Service Overview -->
+<section class="section beige">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="prosthetics.title">
+      Dentistry isn’t just about teeth, it’s about restoring smiles, confidence, and freedom.
+    </h2>
+    <p class="intro-text" data-i18n="prosthetics.intro">
+      Dental prosthetics are devices used to restore missing or damaged teeth. They improve both function and aesthetics. Patients choose prosthetics to regain chewing ability, restore confidence, and improve speech.
+    </p>
+    <div class="image-center">
+      <img src="../images/dental-prosthesis.jpg" alt="Dental Prosthetics" class="service-image" />
+    </div>  
+  </div>
+</section>
+
+<!-- SVG divider: beige -> white (wave up) -->
+<div class="section-divider wave-up">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,120 C600,20 600,100 1200,120 L1200,0 L0,0 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+<!-- Types of Prosthetics -->
+<section class="section">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="prosthetics.types_title">Types of Dental Prosthetics</h2>
+    <ul class="checklist">
+      <li data-i18n="prosthetics.types.fixed.crowns">Crowns (Zirconia, Porcelain, E-max)</li>
+      <li data-i18n="prosthetics.types.fixed.bridges">Bridges (3-unit, full-arch)</li>
+      <li data-i18n="prosthetics.types.removable.full_dentures">Full Dentures</li>
+      <li data-i18n="prosthetics.types.removable.partial_dentures">Partial Dentures</li>
+      <li data-i18n="prosthetics.types.removable.flexible_dentures">Flexible Dentures</li>
+      <li data-i18n="prosthetics.types.removable.implant_supported">Implant-supported Dentures</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SVG divider: white -> beige (wave down) -->
+<div class="section-divider wave-down">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 C600,100 600,20 1200,0 L1200,120 L0,120 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+<!-- images -->
+<section class="section beige">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="prosthetics.images_title">Images of some of the Prosthetics</h2>
+
+    <!-- Grid container -->
+    <div class="photo-grid">
+      <div class="grid-item">
+        <img src="../images/Zirconia.jpeg" alt="Zirconia">
+        <div class="label">Zirconia</div>
+      </div>
+      <div class="grid-item">
+        <img src="../images/Porcelain.jpeg" alt="Porcelain">
+        <div class="label">Porcelain</div>
+      </div>
+      <div class="grid-item">
+        <img src="../images/Acrylic.jpeg" alt="Acrylic">
+        <div class="label">Acrylic</div>
+      </div>
+      <div class="grid-item">
+        <img src="../images/Titanium.jpeg" alt="Titanium">
+        <div class="label">Titanium</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- SVG divider: beige -> white (wave up) -->
+<div class="section-divider wave-up">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,120 C600,20 600,100 1200,120 L1200,0 L0,0 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+<!-- Common Materials -->
+<section class="section">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="prosthetics.materials_title">Common Materials</h2>
+    <ul class="checklist">
+      <li data-i18n="prosthetics.materials.zirconia">Zirconia – highly aesthetic and strong</li>
+      <li data-i18n="prosthetics.materials.pfm">Porcelain fused to metal (PFM) – reliable and affordable</li>
+      <li data-i18n="prosthetics.materials.acrylic">Acrylic – used for temporary solutions</li>
+      <li data-i18n="prosthetics.materials.titanium">Titanium – used in implant-supported bars</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SVG divider: white -> beige (wave down) -->
+<div class="section-divider wave-down">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 C600,100 600,20 1200,0 L1200,120 L0,120 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+<!-- Procedure Steps -->
+<section class="section beige">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="prosthetics.procedure_title">How the Prosthetic Procedure Works</h2>
+    <div class="procedure-steps">
+      <div class="procedure-step">
+        <div class="step-text" data-i18n="prosthetics.procedure.step1"><strong>1. Consultation & Impressions:</strong> The dentist examines the case and takes dental impressions.</div>
+      </div>
+      <div class="procedure-step">
+        <div class="step-text" data-i18n="prosthetics.procedure.step2"><strong>2. Tooth Preparation:</strong> If needed, teeth are reshaped to accommodate crowns or bridges.</div>
+      </div>
+      <div class="procedure-step">
+        <div class="step-text" data-i18n="prosthetics.procedure.step3"><strong>3. Lab Fabrication:</strong> The prosthetic is crafted in the lab. This takes 3–7 days depending on the material.</div>
+      </div>
+      <div class="procedure-step">
+        <div class="step-text" data-i18n="prosthetics.procedure.step4"><strong>4. Fitting & Adjustments:</strong> The dentist fits the prosthesis and checks bite, comfort, and aesthetics.</div>
+      </div>
+      <div class="procedure-step">
+        <div class="step-text" data-i18n="prosthetics.procedure.step5"><strong>5. Aftercare Instructions:</strong> Patients receive guidance on maintenance and hygiene.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- SVG divider: beige -> white (wave up) -->
+<div class="section-divider wave-up">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,120 C600,20 600,100 1200,120 L1200,0 L0,0 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+
+<!-- Why Trust Us -->
+<section class="section">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="prosthetics.sales_title">Prosthetic Treatment Options</h2>
+    <ul class="checklist">
+      <li data-i18n="prosthetics.sales.tip1">Review available restoration types and materials</li>
+      <li data-i18n="prosthetics.sales.tip2">Discuss material options with a dental professional</li>
+      <li data-i18n="prosthetics.sales.tip3">Treatment plans are tailored to individual needs</li>
+      <li data-i18n="prosthetics.sales.tip4">Costs vary by treatment and materials</li>
+      <li data-i18n="prosthetics.sales.tip5">Confirm treatment details and terms before proceeding</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SVG divider: white -> beige (wave down) -->
+<div class="section-divider wave-down">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 C600,100 600,20 1200,0 L1200,120 L0,120 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+
+<!-- FAQ -->
+<section class="section beige">
+  <div class="container narrow">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="faq">
+      <h3>How long do crowns or bridges last?</h3>
+      <p>The lifespan of crowns and bridges varies with the materials, fit, oral health, and ongoing care. A dental professional can discuss expectations for an individual case.</p>
+      <h3>Is zirconia better than porcelain?</h3>
+      <p>Yes. Zirconia is stronger, more aesthetic, and more biocompatible, often preferred for long-term restorations.</p>
+      <h3>Will it feel natural?</h3>
+      <p>Yes. Our prosthetics are custom-designed to fit comfortably and restore natural chewing function.</p>
+      <h3>Can I eat normally with crowns or dentures?</h3>
+      <p>Absolutely. Crowns and bridges allow eating all types of food after adaptation. Removable dentures may take a few days to get used to.</p>
+      <h3>What warranty do you offer?</h3>
+      <p>Warranty terms vary by provider and treatment. Confirm the details with your clinic before publishing.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- Call to Action -->
+<section class="cta-section fade-in">
+  <div class="container narrow center">
+    <h2 class="section-title" style="color: #fff; margin-bottom: 10px;">Book Your Free Consultation Today!</h2>
+    <p style="color: #fff; margin-bottom: 14px;">Let us restore your smile with the most advanced dental implant solutions.</p>
+    <a href="../pages/contacts.html" class="btn primary">Reserve Now</a>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section contact fade-in" id="contact">
+  <div class="container narrow">
+    <h2 class="section-title">How Can You Find Us?</h2>
+    <p><strong>Location:</strong> 123 Example Street, Your City</p>
+    <p><strong>Phone:</strong> +1 (555) 010-0100</p>
+    <div class="map-placeholder" id="map-preview" role="img" aria-label="Sample map placeholder"><i class="fas fa-map-location-dot" aria-hidden="true"></i><p data-i18n="map_placeholder">Map preview placeholder</p></div>
+  <div class="hero-buttons">
+    <a href="../pages/contacts.html#contact-form" class="btn primary" data-i18n="book">Book Appointment</a>
+  </div>
+  </div>
+</section>
+
+<!-- SVG divider: contact -> questions -->
+<div class="section-divider wave-down">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 C600,100 600,20 1200,0 L1200,120 L0,120 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+<!-- Questions Section -->
+<section class="section beige fade-in">
+  <div class="container narrow">
+    <h2 class="section-title">Questions about your treatment?</h2>
+    <p>Feel free to email us or book an appointment now.</p>
+    <div class="hero-buttons" style="margin-top: 20px;">
+      <a href="mailto:hello@example.com" class="btn secondary">Message Us</a>
+      <a href="../pages/contacts.html#contact-form" class="btn primary">Book Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer fade-in">
+  <div class="footer-grid">
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="../pages/treatments.html">Services</a></li>
+        <li><a href="../pages/pricing.html">Pricing</a></li>
+        <li><a href="../pages/team.html">Team</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Disclaimer</h4>
+      <p>This is a presentation template. Replace all clinic details, pricing, team information, and testimonials before publishing.</p>
+    </div>
+    <div class="contactfootercontent">
+      <h4>Contact</h4>
+      <p>123 Example Street, Your City<br>Phone: +1 (555) 010-0100<br>Email: hello@example.com</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="copyright">
+    © 2025 Your Dental Clinic. Sample presentation content.
+  </div>
+</footer>
+<button id="scrollToTopBtn"><i class="fas fa-chevron-up"></i></button>
+<script>
+// ======================
+// PROSTHETICS TRANSLATIONS
+// ======================
+const prostheticsTranslations = {
+  al: {
+    title: "Stomatologjia është më shumë sesa rikthimi i dhëmbëve — është dhënia e buzëqeshjes, zërit dhe lirisë për të jetuar e ngrënë pa hezitim.",
+    intro: "Protezat dentare janë pajisje që përdoren për të rikthyer dhëmbët e munguar ose të dëmtuar. Ato përmirësojnë funksionin dhe estetikën. Pacientët zgjedhin proteza për të rifituar aftësinë e përtypjes, për të rikthyer besimin dhe për të përmirësuar të folurin.",
+    types_title: "Llojet e protezave dentare",
+    types: {
+      fixed: {
+        crowns: "Kurora (Zirkon, Porcelan, E-max)",
+        bridges: "Ura (3-elementëshe, harku i plotë)"
+      },
+      removable: {
+        full_dentures: "Proteza të plota",
+        partial_dentures: "Proteza të pjesshme",
+        flexible_dentures: "Proteza fleksibël",
+        implant_supported: "Proteza të mbështetura nga implante"
+      }
+    },
+    materials_title: "Materialet e zakonshme",
+    materials: {
+      zirconia: "Zirkon – shumë estetik dhe i fortë",
+      pfm: "Porcelan i shkrirë me metal (PFM) – i besueshëm dhe me kosto të përballueshme",
+      acrylic: "Akrilik – përdoret për zgjidhje të përkohshme",
+      titanium: "Titanium – përdoret në shufrat e mbështetura nga implanti"
+    },
+    procedure_title: "Si funksionon procedura e protezës dentare",
+    procedure: {
+      step1: "Konsultim & Marrje e masave: Dentisti shqyrton rastin dhe merr masat dentare.",
+      step2: "Përgatitja e dhëmbit: Nëse nevojitet, dhëmbët formësohen për të përshtatur kurorat ose urat.",
+      step3: "Puna laboratorike: Proteza prodhohet në laborator. Zgjat 3–7 ditë në varësi të materialit.",
+      step4: "Provë & rregullime: Dentisti provon protezën dhe kontrollon kafshimin, rehatinë dhe estetikën.",
+      step5: "Udhëzime pas trajtimit: Pacienti merr këshilla për mirëmbajtje dhe higjienë."
+    },
+    faq_title: "Pyetje të shpeshta",
+    faq: {
+      q1: "Sa zgjasin kurorat ose urat?",
+      a1: "Jetëgjatësia e kurorave dhe urave ndryshon sipas materialit, përshtatjes, shëndetit oral dhe kujdesit. Një profesionist mund të diskutojë pritshmëritë për rastin individual.",
+      q2: "A është më i mirë zirkoni se porcelani?",
+      a2: "Po. Zirkoni është më i fortë, më estetik dhe më biokompatibël, duke qenë shpesh zgjedhja më e mirë për restaurime afatgjata.",
+      q3: "A do të ndjehet natyrale?",
+      a3: "Po. Protezat tona janë të personalizuara për t’u përshtatur rehatshëm dhe për të rikthyer funksionin natyral të përtypjes.",
+      q4: "A mund të ha normalisht me kurora ose proteza?",
+      a4: "Po. Me kurora dhe ura, mund të konsumoni çdo ushqim pas një periudhe përshtatjeje. Protezat e lëvizshme mund të kërkojnë disa ditë për t’u mësuar.",
+      q5: "Çfarë garancie ofroni?",
+      a5: "Kushtet e garancisë varen nga ofruesi dhe trajtimi. Konfirmoni hollësitë me profesionistin dentar."
+    },
+    sales_title: "Opsionet e trajtimit protetik",
+    sales: {
+      tip1: "Shqyrtoni llojet e restaurimeve dhe materialet e disponueshme",
+      tip2: "Diskutoni mundësitë e materialeve me një profesionist dentar",
+      tip3: "Planet e trajtimit përshtaten sipas nevojave individuale",
+      tip4: "Kostot ndryshojnë sipas trajtimit dhe materialeve",
+      tip5: "Konfirmoni hollësitë dhe kushtet e trajtimit para publikimit"
+    }
+  },
+  it: {
+    title: "L'odontoiatria è più che ripristinare i denti — è restituire ai pazienti il sorriso, la voce e la libertà di vivere e mangiare senza esitazione.",
+    intro: "Le protesi dentarie sono dispositivi utilizzati per ripristinare denti mancanti o danneggiati. Migliorano sia la funzione che l'estetica. I pazienti scelgono le protesi per riacquistare la capacità di masticare, la fiducia e migliorare la parola.",
+    types_title: "Tipi di protesi dentarie",
+    types: {
+      fixed: {
+        crowns: "Corone (Zirconia, Porcellana, E-max)",
+        bridges: "Ponti (3 elementi, arcata completa)"
+      },
+      removable: {
+        full_dentures: "Protesi totali",
+        partial_dentures: "Protesi parziali",
+        flexible_dentures: "Protesi flessibili",
+        implant_supported: "Protesi supportate da impianti"
+      }
+    },
+    materials_title: "Materiali comuni",
+    materials: {
+      zirconia: "Zirconia – altamente estetica e resistente",
+      pfm: "Porcellana fusa su metallo (PFM) – affidabile e conveniente",
+      acrylic: "Acrilico – usato per soluzioni temporanee",
+      titanium: "Titanio – usato nelle barre supportate da impianti"
+    },
+    procedure_title: "Come funziona la procedura protesica",
+    procedure: {
+      step1: "Consulto & impronte: Il dentista esamina il caso e prende le impronte dentali.",
+      step2: "Preparazione del dente: Se necessario, i denti vengono modellati per accogliere corone o ponti.",
+      step3: "Lavoro in laboratorio: La protesi viene realizzata in laboratorio. Richiede 3–7 giorni a seconda del materiale.",
+      step4: "Prova & regolazioni: Il dentista prova la protesi e controlla morso, comfort ed estetica.",
+      step5: "Istruzioni post-trattamento: Il paziente riceve consigli su manutenzione e igiene."
+    },
+    faq_title: "Domande frequenti",
+    faq: {
+      q1: "Quanto durano le corone o i ponti?",
+      a1: "La durata di corone e ponti varia in base ai materiali, all’adattamento, alla salute orale e alle cure successive. Un professionista può discutere le aspettative per il singolo caso.",
+      q2: "La zirconia è migliore della porcellana?",
+      a2: "Sì. La zirconia è più resistente, più estetica e più biocompatibile, ed è spesso la scelta preferita per restauri a lungo termine.",
+      q3: "Sembrerà naturale?",
+      a3: "Sì. Le nostre protesi sono progettate su misura per adattarsi comodamente e ripristinare la funzione masticatoria naturale.",
+      q4: "Posso mangiare normalmente con corone o protesi?",
+      a4: "Assolutamente. Con corone e ponti, si può mangiare ogni tipo di cibo dopo un breve periodo di adattamento. Le protesi mobili possono richiedere qualche giorno per abituarsi.",
+      q5: "Che garanzia offrite?",
+      a5: "Le condizioni di garanzia dipendono dal fornitore e dal trattamento. Conferma i dettagli con il professionista."
+    },
+    sales_title: "Opzioni di trattamento protesico",
+    sales: {
+      tip1: "Esaminare i tipi di restauro e i materiali disponibili",
+      tip2: "Discutere le opzioni dei materiali con un professionista",
+      tip3: "I piani di trattamento si adattano alle esigenze individuali",
+      tip4: "I costi variano in base al trattamento e ai materiali",
+      tip5: "Confermare i dettagli e le condizioni del trattamento prima della pubblicazione"
+    }
+  }
+};
+
+function updateLanguage(lang) {
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const keys = el.getAttribute("data-i18n").split(".");
+    // Always start from the selected language object
+    let text = prostheticsTranslations[lang];
+
+    // Skip the first part ("prosthetics") in HTML keys
+    if (keys[0] === "prosthetics") {
+      keys.shift();
+    }
+
+    keys.forEach(k => {
+      if (text) text = text[k];
+    });
+
+    if (typeof text === "string") {
+      el.innerHTML = text;
+    }
+  });
+}
+
+document.getElementById("language").addEventListener("change", function() {
+  updateLanguage(this.value);
+});
+</script>
+</body>
+</html>

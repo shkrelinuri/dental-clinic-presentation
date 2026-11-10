@@ -1,0 +1,244 @@
+<!-- PART 1: HEAD AND NAVBAR -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dental Clinic</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <script defer src="../js/translations.js"></script>
+  <script defer src="../script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+<!-- Top Navbar -->
+<header class="top-navbar" style="margin-bottom: 0;">
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+  </div>
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search..." />
+  </div>
+  <div class="language-select">
+    <select id="language">
+      <option value="en">EN</option>
+      <option value="it">IT</option>
+      <option value="al">AL</option>
+    </select>
+  </div>
+</header>
+<nav class="dentozen-navbar" style="margin-top: 0;">
+  <div class="nav-content">
+    <div class="logo">
+  <a href="../index.html">
+    <img src="../images/generic-dental-logo.svg" alt="Your Dental Clinic" />
+  </a>
+</div>
+
+    <button class="hamburger" type="button" aria-label="Open navigation menu" aria-controls="navLinks" aria-expanded="false"><i class="fas fa-bars"></i></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="aboutus.html" data-i18n="nav_about">About Us</a></li>
+      <li><a href="testimonials.html" data-i18n="nav_reviews">Reviews</a></li>
+      <li><a href="treatments.html" data-i18n="nav_services">Services</a></li>
+      <li><a href="pricing.html" data-i18n="nav_pricing">Pricing</a></li>
+      <li><a href="team.html" data-i18n="nav_team">Team</a></li>
+      <li><a href="contacts.html" data-i18n="nav_contact">Contact</a></li>
+      <li class="nav-appointment"><a class="appointment-btn" href="contacts.html#contact-form" data-i18n="book">Book Appointment</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Info Section -->
+<section class="section beige">
+  <h2 class="section-title" data-i18n="modern_dentistry">Modern Dentistry & Aesthetic Treatment</h2>
+  <p data-i18n="modern_text">
+    This page contains sample patient information and testimonials for presentation. Replace hours, location, contact details, and reviews before publishing.
+  </p>
+</section>
+
+<section class="reviews-section">
+  <div class="section-divider top-divider">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path fill="#fdf7f1" d="M0,96L1440,0L1440,0L0,0Z"></path>
+    </svg>
+  </div>
+
+  <div class="section reviews-inner">
+    <h2 class="section-title" data-i18n="patient_reviews">Patient Reviews</h2>
+    <div class="review-list">
+
+      <div class="review">
+        <div class="review-header">
+          <div class="avatar">E</div>
+          <div><strong>Sample Patient</strong><br /><span class="stars">★★★★★</span></div>
+        </div>
+        <p>Shërbimi ishte i mrekullueshëm, stafi shumë i sjellshëm dhe ambienti i pastër.</p>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+          <div class="avatar">J</div>
+          <div><strong>Sample Patient</strong><br /><span class="stars">★★★★★</span></div>
+        </div>
+        <p>Sehr freundliches Personal und moderne Ausstattung. Ich habe mich sehr wohl gefühlt!</p>
+      </div>
+
+      <div class="review">
+      <div class="review-header">
+        <div class="avatar">C</div>
+        <div>
+          <strong>Sample Patient</strong><br />
+          <span class="stars">★★★★★</span>
+        </div>
+      </div>
+      <p>Mi sono trovata benissimo! Servizio eccellente e grande professionalità. Grazie mille!</p>
+    </div>
+
+    <div class="review">
+      <div class="review-header">
+        <div class="avatar">J</div>
+        <div>
+          <strong>Sample Patient</strong><br />
+          <span class="stars">★★★★★</span>
+        </div>
+      </div>
+      <p>Amazing experience from start to finish. Very professional and friendly team. Highly recommend!</p>
+    </div>
+
+    <div class="review">
+      <div class="review-header">
+        <div class="avatar">A</div>
+        <div>
+          <strong>Sample Patient</strong><br />
+          <span class="stars">★★★★★</span>
+        </div>
+      </div>
+      <p>Stafi ishte shumë profesional dhe kujdesi ndaj pacientit ishte në nivel shumë të lartë.</p>
+    </div>
+
+    <div class="review">
+      <div class="review-header">
+        <div class="avatar">S</div>
+        <div>
+          <strong>Sample Patient</strong><br />
+          <span class="stars">★★★★★</span>
+        </div>
+      </div>
+      <p>Ich bin sehr zufrieden mit der Behandlung. Alles war perfekt organisiert!</p>
+    </div>
+
+    <div class="review">
+      <div class="review-header">
+        <div class="avatar">L</div>
+        <div>
+          <strong>Sample Patient</strong><br />
+          <span class="stars">★★★★★</span>
+        </div>
+      </div>
+      <p>Servizio eccellente! Sono molto felice con il risultato del mio trattamento dentale.</p>
+    </div>
+
+    <div class="review">
+      <div class="review-header">
+        <div class="avatar">A</div>
+        <div>
+          <strong>Sample Patient</strong><br />
+          <span class="stars">★★★★★</span>
+        </div>
+      </div>
+      <p>Very clean, modern and welcoming clinic. The staff made me feel comfortable the entire time.</p>
+    </div>
+
+    <div class="review">
+      <div class="review-header">
+        <div class="avatar">R</div>
+        <div>
+          <strong>Sample Patient</strong><br />
+          <span class="stars">★★★★★</span>
+        </div>
+      </div>
+      <p>Ambienti ishte shumë modern dhe komod. Faleminderit për shërbimin e shkëlqyer!</p>
+    </div>
+
+    <div class="review">
+      <div class="review-header">
+        <div class="avatar">M</div>
+        <div>
+          <strong>Sample Patient</strong><br />
+          <span class="stars">★★★★★</span>
+        </div>
+      </div>
+      <p>Sehr empfehlenswert! Ich habe mich von Anfang an in guten Händen gefühlt.</p>
+    </div>
+
+    </div>
+  </div>
+
+  <div class="section-divider bottom-divider">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path fill="#fdf7f1" d="M0,0L1440,96L1440,100L0,100Z"></path>
+    </svg>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section contact" id="contact">
+  <h2 class="section-title" data-i18n="contact_us">How Can You Find Us?</h2>
+  <p><strong>Location:</strong> 123 Example Street, Your City</p>
+  <p><strong>Phone:</strong> +1 (555) 010-0100</p>
+  <div class="map-placeholder" id="map-preview" role="img" aria-label="Sample map placeholder"><i class="fas fa-map-location-dot" aria-hidden="true"></i><p data-i18n="map_placeholder">Map preview placeholder</p></div>
+  <a href="#contact-form" class="btn primary" data-i18n="book">Book Appointment</a>
+</section>
+
+<!-- Questions Section -->
+<div class="section-divider wave-down">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+    <path d="M0,0 C600,100 600,20 1200,0 L1200,120 L0,120 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+<section class="section beige">
+  <h2 class="section-title" data-i18n="questions">Questions about your treatment?</h2>
+  <p data-i18n="email_or_book">Feel free to email us or book an appointment now.</p>
+  <div class="hero-buttons" style="margin-top: 20px;">
+    <a href="mailto:clinic@example.com" class="btn secondary">Message Us</a>
+    <a href="../pages/contacts.html#contact-form" class="btn primary">Book Now</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="../pages/treatments.html">Treatments</a></li>
+        <li><a href="../pages/pricing.html">Pricing</a></li>
+        <li><a href="../pages/team.html">Team</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Disclaimer</h4>
+      <p>This website provides general dental information. Always consult your dentist before treatment.</p>
+    </div>
+    <div class="contactfootercontent">
+  <h4>Contact</h4>
+  <p>123 Example Street, Your City<br>Phone: +1 (555) 010-0100<br>Email: clinic@example.com</p>
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+  </div>
+</div>
+
+</div>
+
+  </div>
+  <div class="copyright">
+    © 2025 Dental Clinic. All Rights Reserved.
+  </div>
+</footer>
+<button id="scrollToTopBtn"><i class="fas fa-chevron-up"></i></button>
+</body>
+</html>

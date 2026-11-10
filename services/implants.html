@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Dental Clinic - Dental Implants</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <script defer src="../js/translations.js"></script>
+  <script defer src="../script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="icon" type="image/svg+xml" href="../images/generic-dental-logo.svg">
+  <style>
+    /* === Section Styles === */
+    .section { padding: 44px 20px; position: relative; }
+    .section.beige { background: #fdf7f1; }
+    .container.narrow { max-width: 900px; margin: 0 auto; padding: 0 18px; }
+    .section-title {
+      font-size: 1.95rem;
+      font-weight: 700;
+      color: #222;
+      text-align: center;
+      margin-bottom: 18px;
+      line-height: 1.15;
+    }
+    .intro-text { color: #4b4b4b; text-align: center; font-size: 1.05rem; margin-bottom: 18px; }
+
+    /* === Checklist === */
+    .checklist { list-style: none; padding: 0; margin: 0 auto; max-width: 760px; }
+    .checklist li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 10px;
+      color: #444;
+    }
+    .checklist li::before {
+      content: "\f00c";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #b28756;
+      font-size: 0.9rem;
+    }
+
+    .step-text strong {
+      color: #b28756;
+    }
+
+    /* === Alternating Steps Layout === */
+    .procedure-steps { display: flex; flex-direction: column; gap: 40px; margin-top: 20px; }
+    .procedure-step {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .procedure-step:nth-child(even) { flex-direction: row-reverse; }
+    .step-text { flex: 1; min-width: 280px; }
+    .step-text strong { color: #b28756; }
+    .step-image { flex: 1; min-width: 280px; position: relative; }
+    .step-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 22px rgba(13,13,13,0.06);
+    }
+    .step-number {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 36px;
+      height: 36px;
+      line-height: 36px;
+      text-align: center;
+      border-radius: 50%;
+      background: #b28756;
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 6px 14px rgba(178,135,86,0.18);
+      z-index: 2;
+      font-size: 16px;
+    }
+
+    /* === CTA === */
+    .cta-section {
+      background: #b28756;
+      color: #fff;
+      text-align: center;
+      padding: 36px 18px;
+    }
+    .btn {
+      background: #b28756;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .btn:hover { background: #946a41; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .procedure-step { flex-direction: column !important; text-align: center; }
+      .procedure-step:nth-child(even) { flex-direction: column !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top Navbar -->
+<header class="top-navbar" style="margin-bottom: 0;">
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+  </div>
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Cerca..." />
+  </div>
+  <div class="language-select">
+    <select id="language">
+      <option value="en">EN</option>
+      <option value="it">IT</option>
+      <option value="al">AL</option>
+    </select>
+  </div>
+</header>
+
+<nav class="dentozen-navbar" style="margin-top: 0;">
+  <div class="nav-content">
+    <div class="logo">
+      <a href="../index.html">
+        <img src="../images/generic-dental-logo.svg" alt="Your Dental Clinic" />
+      </a>
+    </div>
+    <button class="hamburger" type="button" aria-label="Open navigation menu" aria-controls="navLinks" aria-expanded="false"><i class="fas fa-bars"></i></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../pages/aboutus.html" data-i18n="nav_about">Chi Siamo</a></li>
+      <li><a href="../pages/testimonials.html" data-i18n="nav_reviews">Recensioni</a></li>
+      <li><a href="../pages/treatments.html" data-i18n="nav_services">Trattamenti</a></li>
+      <li><a href="../pages/pricing.html" data-i18n="nav_pricing">Prezzi</a></li>
+      <li><a href="../pages/team.html" data-i18n="nav_team">Team</a></li>
+      <li><a href="../pages/contacts.html" data-i18n="nav_contact">Contatti</a></li>
+      <li class="nav-appointment"><a class="appointment-btn" href="../pages/contacts.html#contact-form" data-i18n="book">Prenota una Visita</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Service Overview -->
+<section class="section beige">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="implants.hero.title">
+      Perdere un dente non è la fine, ma l’inizio di un nuovo sorriso!
+    </h2>
+    <p class="intro-text" data-i18n="implants.hero.intro">
+      Gli impianti dentali sono una possibile opzione per sostituire i denti mancanti. L’idoneità e i risultati attesi dipendono da una valutazione individuale.
+    </p>
+    <div class="image-center">
+      <img src="../images/dental-implants.png" alt="Impianto dentale" class="service-image" />
+    </div>  
+  </div>
+</section>
+
+<!-- SVG divider: beige -> white (wave up) -->
+<div class="section-divider wave-up">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,120 C600,20 600,100 1200,120 L1200,0 L0,0 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+<!-- Why Implants -->
+<section class="section">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="implants.why.title">Perché scegliere gli impianti dentali?</h2>
+    <ul class="checklist">
+      <li data-i18n="implants.why.li1">Soluzione fissa e a lungo termine</li>
+      <li data-i18n="implants.why.li2">Aiutano a preservare il volume e la struttura dell’osso mascellare</li>
+      <li data-i18n="implants.why.li3">Masticazione e estetica nettamente migliorate</li>
+      <li data-i18n="implants.why.li4">Nessun danno ai denti vicini (a differenza dei ponti tradizionali)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SVG divider: white -> beige (wave down) -->
+<div class="section-divider wave-down">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 C600,100 600,20 1200,0 L1200,120 L0,120 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+<!-- Procedure Steps -->
+<section class="section beige">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="implants.procedure_title">Come funziona la procedura implantare</h2>
+    <div class="procedure-steps">
+      <div class="procedure-step">
+        <div class="step-text" data-i18n="implants.procedure.step1">
+          <strong>Prima visita e consulenza:</strong> valutazione della salute orale, degli obiettivi e delle opzioni disponibili con un professionista.
+        </div>
+        <div class="step-image">
+          <span class="step-number">1</span>
+          <img src="../images/implantimg1.jpeg" alt="Fase 1 - Valutazione iniziale">
+        </div>
+      </div>
+      <div class="procedure-step">
+        <div class="step-text" data-i18n="implants.procedure.step2">
+          <strong>Inserimento dell’impianto:</strong> se indicata, la procedura e l’assistenza successiva vengono pianificate in base alle esigenze individuali.
+        </div>
+        <div class="step-image">
+          <span class="step-number">2</span>
+          <img src="../images/implantimg2.jpeg" alt="Fase 2 - Inserimento dell’impianto">
+        </div>
+      </div>
+      <div class="procedure-step">
+        <div class="step-text" data-i18n="implants.procedure.step3">
+          <strong>Guarigione e osteointegrazione:</strong> 3–6 mesi per permettere all’impianto di integrarsi con l’osso.
+        </div>
+        <div class="step-image">
+          <span class="step-number">3</span>
+          <img src="../images/implantimg3.jpeg" alt="Fase 3 - Guarigione / osteointegrazione">
+        </div>
+      </div>
+      <div class="procedure-step">
+        <div class="step-text" data-i18n="implants.procedure.step4">
+          <strong>Restauro finale:</strong> applicazione dell’abutment e della corona definitiva.
+        </div>
+        <div class="step-image">
+          <span class="step-number">4</span>
+          <img src="../images/implantimg4.jpeg" alt="Fase 4 - Abutment e corona finale">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SVG divider: beige -> white (wave up) -->
+<div class="section-divider wave-up">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,120 C600,20 600,100 1200,120 L1200,0 L0,0 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+<!-- Why Trust Us -->
+<section class="section">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="implants.trust.title">Perché fidarti di noi per il tuo sorriso?</h2>
+    <ul class="checklist">
+      <li data-i18n="implants.trust.li1">Valutazione e pianificazione personalizzate</li>
+      <li data-i18n="implants.trust.li2">Opzioni discusse in base alle esigenze individuali</li>
+      <li data-i18n="implants.trust.li3">Informazioni chiare sulle fasi del trattamento e sui costi</li>
+      <li data-i18n="implants.trust.li4">Assistenza e controlli pianificati in base alle esigenze individuali</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SVG divider: white -> beige (wave down) -->
+<div class="section-divider wave-down">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 C600,100 600,20 1200,0 L1200,120 L0,120 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+<!-- FAQ -->
+<section class="section beige">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="implants.faq.title">Domande frequenti</h2>
+    <div class="faq">
+      <h3 data-i18n="implants.faq.q1">Esiste un limite di età?</h3>
+      <p data-i18n="implants.faq.a1">Non esiste un limite di età valido per tutti: l’idoneità dipende dalla salute generale e da una valutazione odontoiatrica.</p>
+
+      <h3 data-i18n="implants.faq.q2">La procedura è dolorosa?</h3>
+      <p data-i18n="implants.faq.a2">Il comfort varia in base alla persona e alla procedura. Il professionista discuterà le opzioni anestetiche e la gestione del disagio.</p>
+
+      <h3 data-i18n="implants.faq.q3">Quanto tempo richiede?</h3>
+      <p data-i18n="implants.faq.a3">L’inserimento di un singolo impianto può richiedere meno di 20 minuti. La guarigione dura dai 3 ai 6 mesi.</p>
+
+      <h3 data-i18n="implants.faq.q4">Ci sono controindicazioni?</h3>
+      <p data-i18n="implants.faq.a4">I pazienti con diabete non controllato o gravi problemi ossei devono prima effettuare valutazioni aggiuntive.</p>
+
+      <h3 data-i18n="implants.faq.q5">Quanto dura un impianto?</h3>
+      <p data-i18n="implants.faq.a5">La durata varia in base a fattori individuali, manutenzione e cure successive. Chiedi al professionista cosa aspettarti nel tuo caso.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta-section fade-in">
+  <div class="container narrow center">
+    <h2 class="section-title" style="color: #fff; margin-bottom: 10px;" data-i18n="cta.title">Prenota oggi la tua consulenza gratuita!</h2>
+    <p style="color: #fff; margin-bottom: 14px;" data-i18n="cta.text">Lascia che ti restituiamo il sorriso con le soluzioni di impianti dentali più avanzate.</p>
+    <a href="../pages/contacts.html" class="btn primary" data-i18n="cta.button">Prenota ora</a>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section contact fade-in" id="contact">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="contact.title">Come puoi trovarci?</h2>
+    <p data-i18n="contact.location"><strong>Indirizzo:</strong> 123 Example Street, Your City</p>
+    <p data-i18n="contact.phone"><strong>Telefono:</strong> +1 (555) 010-0100</p>
+    <div class="map-placeholder" id="map-preview" role="img" aria-label="Sample map placeholder"><i class="fas fa-map-location-dot" aria-hidden="true"></i><p data-i18n="map_placeholder">Map preview placeholder</p></div>
+    <div class="hero-buttons">
+      <a href="../pages/contacts.html#contact-form" class="btn primary" data-i18n="book">Prenota una Visita</a>
+    </div>
+  </div>
+</section>
+
+<!-- SVG divider: contact -> questions -->
+<div class="section-divider wave-down">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 C600,100 600,20 1200,0 L1200,120 L0,120 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+<!-- Questions Section -->
+<section class="section beige fade-in">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="questions.title">Domande sul tuo trattamento?</h2>
+    <p data-i18n="questions.text">Scrivici via e-mail oppure prenota subito una visita.</p>
+    <div class="hero-buttons" style="margin-top: 20px;">
+      <a href="mailto:hello@example.com" class="btn secondary" data-i18n="questions.btn.message">Scrivici</a>
+      <a href="../pages/contacts.html#contact-form" class="btn primary" data-i18n="questions.btn.book">Prenota ora</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer fade-in">
+  <div class="footer-grid">
+    <div>
+      <h4 data-i18n="footer.quicklinks.title">Link rapidi</h4>
+      <ul>
+        <li><a href="../pages/treatments.html" data-i18n="footer.quicklinks.services">Trattamenti</a></li>
+        <li><a href="../pages/pricing.html" data-i18n="footer.quicklinks.pricing">Prezzi</a></li>
+        <li><a href="../pages/team.html" data-i18n="footer.quicklinks.team">Team</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 data-i18n="footer.disclaimer.title">Disclaimer</h4>
+      <p data-i18n="footer.disclaimer.text">
+        Questo è un modello dimostrativo. Sostituisci i dettagli della clinica, i prezzi, il team e le testimonianze prima della pubblicazione.
+      </p>
+    </div>
+    <div class="contactfootercontent">
+      <h4 data-i18n="footer.contact.title">Contatti</h4>
+      <p data-i18n="footer.contact.text">
+        123 Example Street, Your City<br>Telefono: +1 (555) 010-0100<br>Email: hello@example.com
+      </p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="copyright" data-i18n="footer.copyright">
+    © 2025 Your Dental Clinic. Contenuto dimostrativo.
+  </div>
+</footer>
+
+<button id="scrollToTopBtn"><i class="fas fa-chevron-up"></i></button>
+
+<!-- Inline language JS -->
+<script>
+  (function() {
+    const translations = {
+      en: {
+        "search.placeholder": "Search...",
+
+        "nav.about": "About Us",
+        "nav.reviews": "Reviews",
+        "nav.services": "Services",
+        "nav.pricing": "Pricing",
+        "nav.team": "Team",
+        "nav.contact": "Contact",
+        "nav.appointment": "Book Appointment",
+
+        "implants.hero.title": "Missing a Tooth is not the end, it's the Start of a New Smile!",
+        "implants.hero.intro": "Dental implants are one option for replacing missing teeth. Suitability and expected outcomes depend on an individual assessment.",
+
+        "implants.why.title": "Why Choose Dental Implants?",
+        "implants.why.li1": "Permanent and long-lasting solution",
+        "implants.why.li2": "Helps preserve jawbone structure",
+        "implants.why.li3": "Improved chewing function and aesthetics",
+        "implants.why.li4": "No damage to neighboring teeth (unlike traditional bridges)",
+
+        "implants.procedure_title": "How the Implant Procedure Works",
+        "implants.procedure.step1": "<strong>Initial consultation:</strong> Review oral health, goals, and available options with a dental professional.",
+        "implants.procedure.step2": "<strong>Implant placement:</strong> When appropriate, the procedure and aftercare are planned around individual treatment needs.",
+        "implants.procedure.step3": "<strong>Healing & osseointegration:</strong> 3–6 months for the implant to fuse with bone",
+        "implants.procedure.step4": "<strong>Final restoration:</strong> Abutment and permanent crown placement",
+
+        "implants.trust.title": "Why Trust Us With Your Smile?",
+        "implants.trust.li1": "Treatment planning tailored to individual needs",
+        "implants.trust.li2": "Options discussed based on individual needs",
+        "implants.trust.li3": "Clear information about treatment steps and costs",
+        "implants.trust.li4": "Care and follow-up planned around individual needs",
+
+        "implants.faq.title": "Frequently Asked Questions",
+        "implants.faq.q1": "Is there an age limit?",
+        "implants.faq.a1": "There is no single age limit for everyone. Suitability depends on overall health and an individual dental assessment.",
+        "implants.faq.q2": "Is the procedure painful?",
+        "implants.faq.a2": "Comfort varies by patient and procedure. A dental professional can discuss anesthesia options and ways to manage discomfort.",
+        "implants.faq.q3": "How long does it take?",
+        "implants.faq.a3": "The placement of a single implant can be done in under 20 minutes. Healing takes 3–6 months.",
+        "implants.faq.q4": "Are there contraindications?",
+        "implants.faq.a4": "Patients with uncontrolled diabetes or severe bone issues should undergo further evaluation first.",
+        "implants.faq.q5": "How long does an implant last?",
+        "implants.faq.a5": "Longevity depends on the treatment plan, materials, and ongoing care.",
+
+        "cta.title": "Book Your Free Consultation Today!",
+        "cta.text": "Let us restore your smile with the most advanced dental implant solutions.",
+        "cta.button": "Reserve Now",
+
+        "contact.title": "How Can You Find Us?",
+        "contact.location": "<strong>Location:</strong> 123 Example Street, Your City",
+        "contact.phone": "<strong>Phone:</strong> +1 (555) 010-0100",
+        "book": "Book Appointment",
+
+        "questions.title": "Questions about your treatment?",
+        "questions.text": "Feel free to email us or book an appointment now.",
+        "questions.btn.message": "Message Us",
+        "questions.btn.book": "Book Now",
+
+        "footer.quicklinks.title": "Quick Links",
+        "footer.quicklinks.services": "Services",
+        "footer.quicklinks.pricing": "Pricing",
+        "footer.quicklinks.team": "Team",
+        "footer.disclaimer.title": "Disclaimer",
+        "footer.disclaimer.text": "This is a presentation template. Replace all clinic details, pricing, team information, and testimonials before publishing.",
+        "footer.contact.title": "Contact",
+        "footer.contact.text": "123 Example Street, Your City<br>Phone: +1 (555) 010-0100<br>Email: hello@example.com",
+        "footer.copyright": "© 2025 Your Dental Clinic. Sample presentation content."
+      },
+
+      it: {
+        "search.placeholder": "Cerca...",
+
+        "nav.about": "Chi Siamo",
+        "nav.reviews": "Recensioni",
+        "nav.services": "Trattamenti",
+        "nav.pricing": "Prezzi",
+        "nav.team": "Team",
+        "nav.contact": "Contatti",
+        "nav.appointment": "Prenota una Visita",
+
+        "implants.hero.title": "Perdere un dente non è la fine, ma l’inizio di un nuovo sorriso!",
+        "implants.hero.intro": "Gli impianti dentali sono una possibile opzione per sostituire i denti mancanti. L’idoneità e i risultati attesi dipendono da una valutazione individuale.",
+
+        "implants.why.title": "Perché scegliere gli impianti dentali?",
+        "implants.why.li1": "Soluzione fissa e a lungo termine",
+        "implants.why.li2": "Aiutano a preservare il volume e la struttura dell’osso mascellare",
+        "implants.why.li3": "Masticazione e estetica nettamente migliorate",
+        "implants.why.li4": "Nessun danno ai denti vicini (a differenza dei ponti tradizionali)",
+
+        "implants.procedure_title": "Come funziona la procedura implantare",
+        "implants.procedure.step1": "<strong>Prima visita e consulenza:</strong> valutazione della salute orale, degli obiettivi e delle opzioni disponibili con un professionista.",
+        "implants.procedure.step2": "<strong>Inserimento dell’impianto:</strong> se indicata, la procedura e l’assistenza successiva vengono pianificate in base alle esigenze individuali.",
+        "implants.procedure.step3": "<strong>Guarigione e osteointegrazione:</strong> 3–6 mesi per permettere all’impianto di integrarsi con l’osso.",
+        "implants.procedure.step4": "<strong>Restauro finale:</strong> applicazione dell’abutment e della corona definitiva.",
+
+        "implants.trust.title": "Perché fidarti di noi per il tuo sorriso?",
+        "implants.trust.li1": "Valutazione e pianificazione personalizzate",
+        "implants.trust.li2": "Opzioni discusse in base alle esigenze individuali",
+        "implants.trust.li3": "Informazioni chiare sulle fasi del trattamento e sui costi",
+        "implants.trust.li4": "Assistenza e controlli pianificati in base alle esigenze individuali",
+
+        "implants.faq.title": "Domande frequenti",
+        "implants.faq.q1": "Esiste un limite di età?",
+        "implants.faq.a1": "Non esiste un limite di età valido per tutti: l’idoneità dipende dalla salute generale e da una valutazione odontoiatrica.",
+        "implants.faq.q2": "La procedura è dolorosa?",
+        "implants.faq.a2": "Il comfort varia in base alla persona e alla procedura. Il professionista discuterà le opzioni anestetiche e la gestione del disagio.",
+        "implants.faq.q3": "Quanto tempo richiede?",
+        "implants.faq.a3": "L’inserimento di un singolo impianto può richiedere meno di 20 minuti. La guarigione dura dai 3 ai 6 mesi.",
+        "implants.faq.q4": "Ci sono controindicazioni?",
+        "implants.faq.a4": "I pazienti con diabete non controllato o gravi problemi ossei devono prima effettuare valutazioni aggiuntive.",
+        "implants.faq.q5": "Quanto dura un impianto?",
+        "implants.faq.a5": "La durata varia in base a fattori individuali, manutenzione e cure successive. Chiedi al professionista cosa aspettarti nel tuo caso.",
+
+        "cta.title": "Prenota oggi la tua consulenza gratuita!",
+        "cta.text": "Lascia che ti restituiamo il sorriso con le soluzioni di impianti dentali più avanzate.",
+        "cta.button": "Prenota ora",
+
+        "contact.title": "Come puoi trovarci?",
+        "contact.location": "<strong>Indirizzo:</strong> 123 Example Street, Your City",
+        "contact.phone": "<strong>Telefono:</strong> +1 (555) 010-0100",
+        "book": "Prenota una Visita",
+
+        "questions.title": "Domande sul tuo trattamento?",
+        "questions.text": "Scrivici via e-mail oppure prenota subito una visita.",
+        "questions.btn.message": "Scrivici",
+        "questions.btn.book": "Prenota ora",
+
+        "footer.quicklinks.title": "Link rapidi",
+        "footer.quicklinks.services": "Trattamenti",
+        "footer.quicklinks.pricing": "Prezzi",
+        "footer.quicklinks.team": "Team",
+        "footer.disclaimer.title": "Disclaimer",
+        "footer.disclaimer.text": "Questo è un modello dimostrativo. Sostituisci i dettagli della clinica, i prezzi, il team e le testimonianze prima della pubblicazione.",
+        "footer.contact.title": "Contatti",
+        "footer.contact.text": "123 Example Street, Your City<br>Telefono: +1 (555) 010-0100<br>Email: hello@example.com",
+        "footer.copyright": "© 2025 Your Dental Clinic. Contenuto dimostrativo."
+      }
+    };
+
+    function applyTranslations(lang) {
+      const elements = document.querySelectorAll("[data-i18n]");
+      elements.forEach(el => {
+        const key = el.dataset.i18n;
+        const value = translations[lang] && translations[lang][key];
+        if (value) {
+          el.innerHTML = value;
+        }
+      });
+
+      const searchInput = document.getElementById("searchInput");
+      if (searchInput && translations[lang] && translations[lang]["search.placeholder"]) {
+        searchInput.setAttribute("placeholder", translations[lang]["search.placeholder"]);
+      }
+
+      document.documentElement.lang = lang;
+    }
+
+          function loadSavedLanguage() {
+        try { return localStorage.getItem("siteLanguage"); }
+        catch (error) { if (error.name !== "SecurityError") throw error; return null; }
+      }
+      function persistLanguage(language) {
+        try { localStorage.setItem("siteLanguage", language); }
+        catch (error) { if (error.name !== "SecurityError") throw error; }
+      }
+      document.addEventListener("DOMContentLoaded", function() {
+      if (document.documentElement.lang === "al") return;
+const select = document.getElementById("language");
+      const savedLang = new URLSearchParams(location.search).get("lang") || loadSavedLanguage() || "it";
+      const initialLang = (savedLang === "en" || savedLang === "it") ? savedLang : "it";
+
+      if (select) {
+        select.value = initialLang;
+      }
+      applyTranslations(initialLang);
+
+      if (select) {
+        select.addEventListener("change", function() {
+          const lang = select.value;
+          const effectiveLang = (lang === "it" || lang === "en") ? lang : "en";
+          persistLanguage(effectiveLang);
+          applyTranslations(effectiveLang);
+        });
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>

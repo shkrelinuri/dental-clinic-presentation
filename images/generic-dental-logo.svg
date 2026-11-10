@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 76" role="img" aria-labelledby="title">
+  <title id="title">Your Dental Clinic</title>
+  <rect width="360" height="76" rx="14" fill="#fff"/>
+  <circle cx="38" cy="38" r="28" fill="#eaf3ef"/>
+  <path d="M29 22c-8 0-12 6-10 15l4 15c1 4 5 5 7 1l5-11 5 11c2 4 6 3 7-1l4-15c2-9-2-15-10-15-3 0-5 2-6 4-1-2-3-4-6-4z" fill="#245c55"/>
+  <text x="78" y="35" fill="#193f3b" font-family="Arial, sans-serif" font-size="21" font-weight="700">YOUR DENTAL</text>
+  <text x="79" y="57" fill="#63716e" font-family="Arial, sans-serif" font-size="15" font-weight="600" letter-spacing="3">CLINIC</text>
+</svg>

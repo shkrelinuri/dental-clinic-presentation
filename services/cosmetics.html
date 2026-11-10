@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Dental Clinic - Cosmetic Dentistry</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <script defer src="../js/translations.js"></script>
+  <script defer src="../script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="icon" type="image/svg+xml" href="../images/generic-dental-logo.svg">
+  <style>
+    /* === Section Styles === */
+    .section { padding: 44px 20px; position: relative; }
+    .section.beige { background: #fdf7f1; }
+    .container.narrow { max-width: 900px; margin: 0 auto; padding: 0 18px; }
+    .section-title {
+      font-size: 1.95rem;
+      font-weight: 700;
+      color: #222;
+      text-align: center;
+      margin-bottom: 18px;
+      line-height: 1.15;
+    }
+    .intro-text { color: #4b4b4b; text-align: center; font-size: 1.05rem; margin-bottom: 18px; }
+
+    /* === Checklist === */
+    .checklist { list-style: none; padding: 0; margin: 0 auto; max-width: 760px; }
+    .checklist li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 10px;
+      color: #444;
+    }
+    .checklist li::before {
+      content: "\f00c";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #b28756;
+      font-size: 0.9rem;
+    }
+
+    .faq h3 {
+      font-size: 1.1rem;
+      margin-top: 20px;
+      color: #b28756;
+    }
+
+    /* === Alternating Steps Layout === */
+    .procedure-steps { display: flex; flex-direction: column; gap: 40px; margin-top: 20px; }
+    .procedure-step {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .procedure-step:nth-child(even) { flex-direction: row-reverse; }
+    .step-text { flex: 1; min-width: 280px; }
+    .step-text strong { color: #b28756; }
+    .step-image { flex: 1; min-width: 280px; position: relative; }
+    .step-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 22px rgba(13,13,13,0.06);
+    }
+    .step-number {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 36px;
+      height: 36px;
+      line-height: 36px;
+      text-align: center;
+      border-radius: 50%;
+      background: #b28756;
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 6px 14px rgba(178,135,86,0.18);
+      z-index: 2;
+      font-size: 16px;
+    }
+
+    /* === CTA === */
+    .cta-section {
+      background: #b28756;
+      color: #fff;
+      text-align: center;
+      padding: 36px 18px;
+    }
+    .btn {
+      background: #b28756;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .btn:hover { background: #946a41; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .procedure-step { flex-direction: column !important; text-align: center; }
+      .procedure-step:nth-child(even) { flex-direction: column !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top Navbar -->
+<header class="top-navbar" style="margin-bottom: 0;">
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+  </div>
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Cerca..." />
+  </div>
+  <div class="language-select">
+    <select id="language">
+      <option value="en">EN</option>
+      <option value="it">IT</option>
+      <option value="al">AL</option>
+    </select>
+  </div>
+</header>
+
+<nav class="dentozen-navbar" style="margin-top: 0;">
+  <div class="nav-content">
+    <div class="logo">
+      <a href="../index.html">
+        <img src="../images/generic-dental-logo.svg" alt="Your Dental Clinic" />
+      </a>
+    </div>
+    <button class="hamburger" type="button" aria-label="Open navigation menu" aria-controls="navLinks" aria-expanded="false"><i class="fas fa-bars"></i></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../pages/aboutus.html" data-i18n="nav_about">Chi Siamo</a></li>
+      <li><a href="../pages/testimonials.html" data-i18n="nav_reviews">Recensioni</a></li>
+      <li><a href="../pages/treatments.html" data-i18n="nav_services">Trattamenti</a></li>
+      <li><a href="../pages/pricing.html" data-i18n="nav_pricing">Prezzi</a></li>
+      <li><a href="../pages/team.html" data-i18n="nav_team">Team</a></li>
+      <li><a href="../pages/contacts.html" data-i18n="nav_contact">Contatti</a></li>
+      <li class="nav-appointment"><a class="appointment-btn" href="../pages/contacts.html#contact-form" data-i18n="book">Prenota una Visita</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Service Overview -->
+<section class="section beige">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="cosmetics.title">
+      Un bel sorriso è molto più dell’estetica: è sicurezza, autostima e una prima impressione che dura nel tempo.
+    </h2>
+    <p class="intro-text" data-i18n="cosmetics.intro">
+      L’odontoiatria estetica si concentra sul miglioramento dell’aspetto dei denti, delle gengive e del sorriso nel suo insieme. Dallo sbiancamento alle faccette, i nostri trattamenti uniscono arte e scienza dentale per risultati che cambiano la vita.
+    </p>
+    <div class="image-center">
+      <img src="../images/dental-cosmetics.jpg" alt="Odontoiatria estetica" class="service-image" />
+    </div>
+  </div>
+</section>
+
+<!-- SVG divider: beige -> white (wave up) -->
+<div class="section-divider wave-up">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,120 C600,20 600,100 1200,120 L1200,0 L0,0 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+<!-- Types of Treatments -->
+<section class="section">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="cosmetics.types_title">Trattamenti estetici più richiesti</h2>
+    <ul class="checklist">
+      <li data-i18n="cosmetics.types.whitening">Sbiancamento dentale – per un sorriso più bianco e luminoso</li>
+      <li data-i18n="cosmetics.types.veneers">Faccette in porcellana – correggono forma, colore e lieve disallineamento</li>
+      <li data-i18n="cosmetics.types.bonding">Ricostruzioni in composito (bonding) – riparano scheggiature e piccole fratture</li>
+      <li data-i18n="cosmetics.types.implants">Impianti dentali – sostituiscono i denti mancanti con un aspetto naturale</li>
+      <li data-i18n="cosmetics.types.gum">Rimodellamento gengivale – ridefinisce le gengive per un sorriso armonioso</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SVG divider: white -> beige (wave down) -->
+<div class="section-divider wave-down">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 C600,100 600,20 1200,0 L1200,120 L0,120 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+<!-- Procedure Steps -->
+<section class="section beige">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="cosmetics.procedure_title">Come funziona un trattamento estetico</h2>
+    <div class="procedure-steps">
+      <div class="procedure-step">
+        <div class="step-text" data-i18n="cosmetics.procedure.step1">
+          <strong>1. Visita e analisi del sorriso:</strong> colloquio dettagliato sui tuoi obiettivi ed esame di denti e gengive.
+        </div>
+      </div>
+      <div class="procedure-step">
+        <div class="step-text" data-i18n="cosmetics.procedure.step2">
+          <strong>2. Digital Smile Design:</strong> con software avanzati progettiamo e ti mostriamo l’anteprima del nuovo sorriso.
+        </div>
+      </div>
+      <div class="procedure-step">
+        <div class="step-text" data-i18n="cosmetics.procedure.step3">
+          <strong>3. Preparazione:</strong> i denti vengono puliti, rimodellati o preparati in base al tipo di trattamento.
+        </div>
+      </div>
+      <div class="procedure-step">
+        <div class="step-text" data-i18n="cosmetics.procedure.step4">
+          <strong>4. Applicazione:</strong> sbiancamento, faccette, bonding o impianti vengono eseguiti con precisione e cura.
+        </div>
+      </div>
+      <div class="procedure-step">
+        <div class="step-text" data-i18n="cosmetics.procedure.step5">
+          <strong>5. Rifinitura e controllo finale:</strong> lucidiamo, controlliamo il combaciamento e ci assicuriamo che il sorriso sia naturale e confortevole.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SVG divider: beige -> white (wave up) -->
+<div class="section-divider wave-up">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,120 C600,20 600,100 1200,120 L1200,0 L0,0 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+<!-- Why Trust Us -->
+<section class="section">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="cosmetics.sales_title">Perché scegliere la nostra odontoiatria estetica?</h2>
+    <ul class="checklist">
+      <li data-i18n="cosmetics.sales.tip1">Tecnologie e materiali di ultima generazione</li>
+      <li data-i18n="cosmetics.sales.tip2">Progettazione del sorriso personalizzata su misura per te</li>
+      <li data-i18n="cosmetics.sales.tip3">Risultati naturali con il minimo disagio</li>
+      <li data-i18n="cosmetics.sales.tip4">Soluzioni accessibili con benefici duraturi</li>
+      <li data-i18n="cosmetics.sales.tip5">Dentisti estetici con grande esperienza e affidabilità</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SVG divider: white -> beige (wave down) -->
+<div class="section-divider wave-down">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 C600,100 600,20 1200,0 L1200,120 L0,120 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+<!-- FAQ -->
+<section class="section beige">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="cosmetics.faq_title">Domande frequenti</h2>
+    <div class="faq">
+      <h3 data-i18n="cosmetics.faq.q1">Lo sbiancamento dentale è sicuro?</h3>
+      <p data-i18n="cosmetics.faq.a1">Sì. Lo sbiancamento professionale eseguito sotto il controllo del dentista è sicuro e molto efficace.</p>
+
+      <h3 data-i18n="cosmetics.faq.q2">Le faccette rovinano i denti naturali?</h3>
+      <p data-i18n="cosmetics.faq.a2">Viene rimossa solo una sottile quantità di smalto; se eseguite correttamente, le faccette sono sicure e durature.</p>
+
+      <h3 data-i18n="cosmetics.faq.q3">Per quanto tempo durano i risultati estetici?</h3>
+      <p data-i18n="cosmetics.faq.a3">La durata dei risultati varia in base al trattamento, alla salute orale e alle cure successive. Un professionista può indicare cosa aspettarsi nel tuo caso.</p>
+
+      <h3 data-i18n="cosmetics.faq.q4">L’odontoiatria estetica sembra naturale?</h3>
+      <p data-i18n="cosmetics.faq.a4">Sì. Le tecniche moderne permettono di ottenere colore, forma e funzione estremamente naturali.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta-section fade-in">
+  <div class="container narrow center">
+    <h2 class="section-title" style="color: #fff; margin-bottom: 10px;" data-i18n="cta.title">Prenota oggi la tua consulenza gratuita!</h2>
+    <p style="color: #fff; margin-bottom: 14px;" data-i18n="cta.text">Lascia che trasformiamo il tuo sorriso con le soluzioni di odontoiatria estetica più avanzate.</p>
+    <a href="../pages/contacts.html" class="btn primary" data-i18n="cta.button">Prenota ora</a>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section contact fade-in" id="contact">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="contact.title">Come puoi trovarci?</h2>
+    <p data-i18n="contact.location"><strong>Indirizzo:</strong> 123 Example Street, Your City</p>
+    <p data-i18n="contact.phone"><strong>Telefono:</strong> +1 (555) 010-0100</p>
+    <div class="map-placeholder" id="map-preview" role="img" aria-label="Sample map placeholder"><i class="fas fa-map-location-dot" aria-hidden="true"></i><p data-i18n="map_placeholder">Map preview placeholder</p></div>
+    <div class="hero-buttons">
+      <a href="../pages/contacts.html#contact-form" class="btn primary" data-i18n="book">Prenota una Visita</a>
+    </div>
+  </div>
+</section>
+
+<!-- SVG divider: contact -> questions -->
+<div class="section-divider wave-down">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 C600,100 600,20 1200,0 L1200,120 L0,120 Z" fill="#fdf7f1"></path>
+  </svg>
+</div>
+
+<!-- Questions Section -->
+<section class="section beige fade-in">
+  <div class="container narrow">
+    <h2 class="section-title" data-i18n="questions.title">Domande sul tuo trattamento?</h2>
+    <p data-i18n="questions.text">Scrivici via e-mail oppure prenota subito una visita.</p>
+    <div class="hero-buttons" style="margin-top: 20px;">
+      <a href="mailto:hello@example.com" class="btn secondary" data-i18n="questions.btn.message">Scrivici</a>
+      <a href="../pages/contacts.html#contact-form" class="btn primary" data-i18n="questions.btn.book">Prenota ora</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer fade-in">
+  <div class="footer-grid">
+    <div>
+      <h4 data-i18n="footer.quicklinks.title">Link rapidi</h4>
+      <ul>
+        <li><a href="../pages/treatments.html" data-i18n="footer.quicklinks.services">Trattamenti</a></li>
+        <li><a href="../pages/pricing.html" data-i18n="footer.quicklinks.pricing">Prezzi</a></li>
+        <li><a href="../pages/team.html" data-i18n="footer.quicklinks.team">Team</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 data-i18n="footer.disclaimer.title">Disclaimer</h4>
+      <p data-i18n="footer.disclaimer.text">
+        Questo è un modello dimostrativo. Sostituisci i dettagli della clinica, i prezzi, il team e le testimonianze prima della pubblicazione.
+      </p>
+    </div>
+    <div class="contactfootercontent">
+      <h4 data-i18n="footer.contact.title">Contatti</h4>
+      <p data-i18n="footer.contact.text">
+        123 Example Street, Your City<br>Telefono: +1 (555) 010-0100<br>Email: hello@example.com
+      </p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="copyright" data-i18n="footer.copyright">
+    © 2025 Your Dental Clinic. Contenuto dimostrativo.
+  </div>
+</footer>
+
+<button id="scrollToTopBtn"><i class="fas fa-chevron-up"></i></button>
+
+<!-- Inline language JS -->
+<script>
+  (function() {
+    const translations = {
+      en: {
+        "search.placeholder": "Search...",
+
+        "nav.about": "About Us",
+        "nav.reviews": "Reviews",
+        "nav.services": "Services",
+        "nav.pricing": "Pricing",
+        "nav.team": "Team",
+        "nav.contact": "Contact",
+        "nav.appointment": "Book Appointment",
+
+        "cosmetics.title": "A beautiful smile is more than aesthetics — it’s confidence, self-esteem, and first impressions that last.",
+        "cosmetics.intro": "Cosmetic dentistry focuses on enhancing the appearance of your teeth, gums, and overall smile. From whitening to veneers, our treatments combine artistry and dental science for life-changing results.",
+
+        "cosmetics.types_title": "Popular Cosmetic Treatments",
+        "cosmetics.types.whitening": "Teeth Whitening – for a brighter smile",
+        "cosmetics.types.veneers": "Porcelain Veneers – correct shape, color, and alignment",
+        "cosmetics.types.bonding": "Composite Bonding – repair chips and cracks",
+        "cosmetics.types.implants": "Dental Implants – restore missing teeth with natural look",
+        "cosmetics.types.gum": "Gum Contouring – reshape gums for a balanced smile",
+
+        "cosmetics.procedure_title": "How Cosmetic Treatment Works",
+        "cosmetics.procedure.step1": "<strong>1. Consultation & Smile Analysis:</strong> A detailed discussion about your goals and evaluation of your teeth and gums.",
+        "cosmetics.procedure.step2": "<strong>2. Digital Smile Design:</strong> Using advanced software, we plan and show you a preview of your future smile.",
+        "cosmetics.procedure.step3": "<strong>3. Treatment Preparation:</strong> Teeth are cleaned, reshaped, or prepared depending on the procedure.",
+        "cosmetics.procedure.step4": "<strong>4. Application:</strong> Whitening, veneers, bonding, or implants are performed with precision and care.",
+        "cosmetics.procedure.step5": "<strong>5. Final Adjustments & Results:</strong> We polish, check bite alignment, and ensure your smile is natural and comfortable.",
+
+        "cosmetics.sales_title": "Why Choose Our Cosmetic Dentistry?",
+        "cosmetics.sales.tip1": "Cutting-edge technology and materials",
+        "cosmetics.sales.tip2": "Personalized smile design approach",
+        "cosmetics.sales.tip3": "Natural-looking results with minimal discomfort",
+        "cosmetics.sales.tip4": "Affordable options with lasting benefits",
+        "cosmetics.sales.tip5": "Experienced cosmetic dentists you can trust",
+
+        "cosmetics.faq_title": "Frequently Asked Questions",
+        "cosmetics.faq.q1": "Is teeth whitening safe?",
+        "cosmetics.faq.a1": "Yes. Professional whitening under dentist supervision is safe and highly effective.",
+        "cosmetics.faq.q2": "Do veneers damage my natural teeth?",
+        "cosmetics.faq.a2": "A thin layer of enamel is reshaped, but when done professionally, veneers are safe and long-lasting.",
+        "cosmetics.faq.q3": "How long do cosmetic results last?",
+        "cosmetics.faq.a3": "Results vary by treatment, oral health, and ongoing care. A dental professional can discuss what to expect in an individual case.",
+        "cosmetics.faq.q4": "Will cosmetic dentistry look natural?",
+        "cosmetics.faq.a4": "Yes. Modern techniques ensure natural color, shape, and function.",
+
+        "cta.title": "Book Your Free Consultation Today!",
+        "cta.text": "Let us restore your smile with the most advanced cosmetic dentistry solutions.",
+        "cta.button": "Reserve Now",
+
+        "contact.title": "How Can You Find Us?",
+        "contact.location": "<strong>Location:</strong> 123 Example Street, Your City",
+        "contact.phone": "<strong>Phone:</strong> +1 (555) 010-0100",
+        "book": "Book Appointment",
+
+        "questions.title": "Questions about your treatment?",
+        "questions.text": "Feel free to email us or book an appointment now.",
+        "questions.btn.message": "Message Us",
+        "questions.btn.book": "Book Now",
+
+        "footer.quicklinks.title": "Quick Links",
+        "footer.quicklinks.services": "Services",
+        "footer.quicklinks.pricing": "Pricing",
+        "footer.quicklinks.team": "Team",
+        "footer.disclaimer.title": "Disclaimer",
+        "footer.disclaimer.text": "This is a presentation template. Replace all clinic details, pricing, team information, and testimonials before publishing.",
+        "footer.contact.title": "Contact",
+        "footer.contact.text": "123 Example Street, Your City<br>Phone: +1 (555) 010-0100<br>Email: hello@example.com",
+        "footer.copyright": "© 2025 Your Dental Clinic. Sample presentation content."
+      },
+
+      it: {
+        "search.placeholder": "Cerca...",
+
+        "nav.about": "Chi Siamo",
+        "nav.reviews": "Recensioni",
+        "nav.services": "Trattamenti",
+        "nav.pricing": "Prezzi",
+        "nav.team": "Team",
+        "nav.contact": "Contatti",
+        "nav.appointment": "Prenota una Visita",
+
+        "cosmetics.title": "Un bel sorriso è molto più dell’estetica: è sicurezza, autostima e una prima impressione che dura nel tempo.",
+        "cosmetics.intro": "L’odontoiatria estetica si concentra sul miglioramento dell’aspetto dei denti, delle gengive e del sorriso nel suo insieme. Dallo sbiancamento alle faccette, i nostri trattamenti uniscono arte e scienza dentale per risultati che cambiano la vita.",
+
+        "cosmetics.types_title": "Trattamenti estetici più richiesti",
+        "cosmetics.types.whitening": "Sbiancamento dentale – per un sorriso più bianco e luminoso",
+        "cosmetics.types.veneers": "Faccette in porcellana – correggono forma, colore e lieve disallineamento",
+        "cosmetics.types.bonding": "Ricostruzioni in composito (bonding) – riparano scheggiature e piccole fratture",
+        "cosmetics.types.implants": "Impianti dentali – sostituiscono i denti mancanti con un aspetto naturale",
+        "cosmetics.types.gum": "Rimodellamento gengivale – ridefinisce le gengive per un sorriso armonioso",
+
+        "cosmetics.procedure_title": "Come funziona un trattamento estetico",
+        "cosmetics.procedure.step1": "<strong>1. Visita e analisi del sorriso:</strong> colloquio dettagliato sui tuoi obiettivi ed esame di denti e gengive.",
+        "cosmetics.procedure.step2": "<strong>2. Digital Smile Design:</strong> con software avanzati progettiamo e ti mostriamo l’anteprima del nuovo sorriso.",
+        "cosmetics.procedure.step3": "<strong>3. Preparazione:</strong> i denti vengono puliti, rimodellati o preparati in base al tipo di trattamento.",
+        "cosmetics.procedure.step4": "<strong>4. Applicazione:</strong> sbiancamento, faccette, bonding o impianti vengono eseguiti con precisione e cura.",
+        "cosmetics.procedure.step5": "<strong>5. Rifinitura e controllo finale:</strong> lucidiamo, controlliamo il combaciamento e ci assicuriamo che il sorriso sia naturale e confortevole.",
+
+        "cosmetics.sales_title": "Perché scegliere la nostra odontoiatria estetica?",
+        "cosmetics.sales.tip1": "Tecnologie e materiali di ultima generazione",
+        "cosmetics.sales.tip2": "Progettazione del sorriso personalizzata su misura per te",
+        "cosmetics.sales.tip3": "Risultati naturali con il minimo disagio",
+        "cosmetics.sales.tip4": "Soluzioni accessibili con benefici duraturi",
+        "cosmetics.sales.tip5": "Dentisti estetici con grande esperienza e affidabilità",
+
+        "cosmetics.faq_title": "Domande frequenti",
+        "cosmetics.faq.q1": "Lo sbiancamento dentale è sicuro?",
+        "cosmetics.faq.a1": "Sì. Lo sbiancamento professionale eseguito sotto il controllo del dentista è sicuro e molto efficace.",
+        "cosmetics.faq.q2": "Le faccette rovinano i denti naturali?",
+        "cosmetics.faq.a2": "Viene rimossa solo una sottile quantità di smalto; se eseguite correttamente, le faccette sono sicure e durature.",
+        "cosmetics.faq.q3": "Per quanto tempo durano i risultati estetici?",
+        "cosmetics.faq.a3": "La durata dei risultati varia in base al trattamento, alla salute orale e alle cure successive. Un professionista può indicare cosa aspettarsi nel tuo caso.",
+        "cosmetics.faq.q4": "L’odontoiatria estetica sembra naturale?",
+        "cosmetics.faq.a4": "Sì. Le tecniche moderne permettono di ottenere colore, forma e funzione estremamente naturali.",
+
+        "cta.title": "Prenota oggi la tua consulenza gratuita!",
+        "cta.text": "Lascia che trasformiamo il tuo sorriso con le soluzioni di odontoiatria estetica più avanzate.",
+        "cta.button": "Prenota ora",
+
+        "contact.title": "Come puoi trovarci?",
+        "contact.location": "<strong>Indirizzo:</strong> 123 Example Street, Your City",
+        "contact.phone": "<strong>Telefono:</strong> +1 (555) 010-0100",
+        "book": "Prenota una Visita",
+
+        "questions.title": "Domande sul tuo trattamento?",
+        "questions.text": "Scrivici via e-mail oppure prenota subito una visita.",
+        "questions.btn.message": "Scrivici",
+        "questions.btn.book": "Prenota ora",
+
+        "footer.quicklinks.title": "Link rapidi",
+        "footer.quicklinks.services": "Trattamenti",
+        "footer.quicklinks.pricing": "Prezzi",
+        "footer.quicklinks.team": "Team",
+        "footer.disclaimer.title": "Disclaimer",
+        "footer.disclaimer.text": "Questo è un modello dimostrativo. Sostituisci i dettagli della clinica, i prezzi, il team e le testimonianze prima della pubblicazione.",
+        "footer.contact.title": "Contatti",
+        "footer.contact.text": "123 Example Street, Your City<br>Telefono: +1 (555) 010-0100<br>Email: hello@example.com",
+        "footer.copyright": "© 2025 Your Dental Clinic. Contenuto dimostrativo."
+      }
+    };
+
+    function applyTranslations(lang) {
+      const elements = document.querySelectorAll("[data-i18n]");
+      elements.forEach(el => {
+        const key = el.dataset.i18n;
+        const value = translations[lang] && translations[lang][key];
+        if (value) {
+          el.innerHTML = value;
+        }
+      });
+
+      const searchInput = document.getElementById("searchInput");
+      if (searchInput && translations[lang] && translations[lang]["search.placeholder"]) {
+        searchInput.setAttribute("placeholder", translations[lang]["search.placeholder"]);
+      }
+
+      document.documentElement.lang = lang;
+    }
+
+          function loadSavedLanguage() {
+        try { return localStorage.getItem("siteLanguage"); }
+        catch (error) { if (error.name !== "SecurityError") throw error; return null; }
+      }
+      function persistLanguage(language) {
+        try { localStorage.setItem("siteLanguage", language); }
+        catch (error) { if (error.name !== "SecurityError") throw error; }
+      }
+      document.addEventListener("DOMContentLoaded", function() {
+      if (document.documentElement.lang === "al") return;
+const select = document.getElementById("language");
+      const savedLang = new URLSearchParams(location.search).get("lang") || loadSavedLanguage() || "it";
+      const initialLang = (savedLang === "en" || savedLang === "it") ? savedLang : "it";
+
+      if (select) {
+        select.value = initialLang;
+      }
+      applyTranslations(initialLang);
+
+      if (select) {
+        select.addEventListener("change", function() {
+          const lang = select.value;
+          const effectiveLang = (lang === "it" || lang === "en") ? lang : "en";
+          persistLanguage(effectiveLang);
+          applyTranslations(effectiveLang);
+        });
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>
